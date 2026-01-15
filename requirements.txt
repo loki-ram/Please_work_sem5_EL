@@ -1,0 +1,29 @@
+# Core dependencies
+torch>=2.0.0
+torchvision>=0.15.0
+torchaudio>=2.0.0
+
+# MediaPipe for landmark extraction
+mediapipe>=0.10.0
+
+# Computer vision
+opencv-python>=4.8.0
+
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
+
+# Progress bars
+tqdm>=4.65.0
+
+# Optional: Model export
+onnx>=1.14.0
+onnxruntime>=1.15.0
+
+# Optional: TFLite export (uncomment if needed)
+# tensorflow>=2.13.0
+# onnx-tf>=1.10.0
+
+# Optional: Visualization
+# matplotlib>=3.7.0
+# seaborn>=0.12.0

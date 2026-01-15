@@ -1,0 +1,31 @@
+# Datasets (DO NOT PUSH)
+data/
+dataset/
+datasets/
+videos/
+Videos for 114 sentences/
+.csv
+
+# Large files
+*.mp4
+*.avi
+*.mov
+*.MP4
+
+# MediaPipe outputs / features
+*.npy
+*.npz
+
+# Checkpoints
+checkpoints/
+models/
+*.pt
+*.pth
+
+# Python cache
+__pycache__/
+*.pyc
+
+# Virtual environments
+venv/
+.env
