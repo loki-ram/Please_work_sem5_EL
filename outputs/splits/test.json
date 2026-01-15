@@ -1,0 +1,610 @@
+[
+  {
+    "folder_name": "do not hurt me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\do not hurt me\\hurt.MP4",
+    "video_filename": "hurt.MP4",
+    "gloss": "DONOT HURT ME",
+    "sentence": "do not hurt me",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "wear the shirt",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\wear the shirt\\shirt (4).MP4",
+    "video_filename": "shirt (4).MP4",
+    "gloss": "WEAR SHIRT",
+    "sentence": "wear the shirt",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "i am fine. thank you sir",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i am fine. thank you sir\\fine thank (2).MP4",
+    "video_filename": "fine thank (2).MP4",
+    "gloss": "I FINE. THANK YOU SIR",
+    "sentence": "i am fine. thank you sir",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "i am fine. thank you sir",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i am fine. thank you sir\\i am fine. thank you sir.mp4",
+    "video_filename": "i am fine. thank you sir.mp4",
+    "gloss": "I FINE. THANK YOU SIR",
+    "sentence": "i am fine. thank you sir",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "he is on the way",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\he is on the way\\he is on the way (2).mp4",
+    "video_filename": "he is on the way (2).mp4",
+    "gloss": "HE ON WAY",
+    "sentence": "he is on the way",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "turn on light turn off light",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\turn on light turn off light\\turn on (3).MP4",
+    "video_filename": "turn on (3).MP4",
+    "gloss": "TURN ON LIGHT TURN OFF LIGHT",
+    "sentence": "turn on light turn off light",
+    "gloss_length": 6
+  },
+  {
+    "folder_name": "you are good",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\you are good\\you are good.mp4",
+    "video_filename": "you are good.mp4",
+    "gloss": "YOU GOOD",
+    "sentence": "you are good",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "how old are you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\how old are you\\how old are you (2).mp4",
+    "video_filename": "how old are you (2).mp4",
+    "gloss": "HOW OLD YOU",
+    "sentence": "how old are you",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "he is on the way",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\he is on the way\\he is on the way.mp4",
+    "video_filename": "he is on the way.mp4",
+    "gloss": "HE ON WAY",
+    "sentence": "he is on the way",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "it was nice chatting with you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\it was nice chatting with you\\MVI_6853.MP4",
+    "video_filename": "MVI_6853.MP4",
+    "gloss": "IT NICE CHAT WITH YOU",
+    "sentence": "it was nice chatting with you",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "what happened",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\what happened\\happen.MP4",
+    "video_filename": "happen.MP4",
+    "gloss": "WHAT HAPPENED",
+    "sentence": "what happened",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "i enjoyed a lot",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i enjoyed a lot\\enjoyed (4).MP4",
+    "video_filename": "enjoyed (4).MP4",
+    "gloss": "I ENJOYED A LOT",
+    "sentence": "i enjoyed a lot",
+    "gloss_length": 4
+  },
+  {
+    "folder_name": "how old are you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\how old are you\\how old are you (7).MP4",
+    "video_filename": "how old are you (7).MP4",
+    "gloss": "HOW OLD YOU",
+    "sentence": "how old are you",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "do not hurt me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\do not hurt me\\hurt me.MP4",
+    "video_filename": "hurt me.MP4",
+    "gloss": "DONOT HURT ME",
+    "sentence": "do not hurt me",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "you are good",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\you are good\\good (2).MP4",
+    "video_filename": "good (2).MP4",
+    "gloss": "YOU GOOD",
+    "sentence": "you are good",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "help me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\help me\\help me (1).MP4",
+    "video_filename": "help me (1).MP4",
+    "gloss": "HELP ME",
+    "sentence": "help me",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "i enjoyed a lot",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i enjoyed a lot\\i enjoyed a lot.mp4",
+    "video_filename": "i enjoyed a lot.mp4",
+    "gloss": "I ENJOYED A LOT",
+    "sentence": "i enjoyed a lot",
+    "gloss_length": 4
+  },
+  {
+    "folder_name": "i enjoyed a lot",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i enjoyed a lot\\i enjoyed a lot (2).mp4",
+    "video_filename": "i enjoyed a lot (2).mp4",
+    "gloss": "I ENJOYED A LOT",
+    "sentence": "i enjoyed a lot",
+    "gloss_length": 4
+  },
+  {
+    "folder_name": "it was nice chatting with you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\it was nice chatting with you\\MVI_6107.MP4",
+    "video_filename": "MVI_6107.MP4",
+    "gloss": "IT NICE CHAT WITH YOU",
+    "sentence": "it was nice chatting with you",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "you are good",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\you are good\\good (4).MP4",
+    "video_filename": "good (4).MP4",
+    "gloss": "YOU GOOD",
+    "sentence": "you are good",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "i am fine. thank you sir",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i am fine. thank you sir\\fine thank (3).MP4",
+    "video_filename": "fine thank (3).MP4",
+    "gloss": "I FINE. THANK YOU SIR",
+    "sentence": "i am fine. thank you sir",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "what happened",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\what happened\\happened.MP4",
+    "video_filename": "happened.MP4",
+    "gloss": "WHAT HAPPENED",
+    "sentence": "what happened",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "wear the shirt",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\wear the shirt\\shirt.MP4",
+    "video_filename": "shirt.MP4",
+    "gloss": "WEAR SHIRT",
+    "sentence": "wear the shirt",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "how old are you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\how old are you\\how old are you (1).mp4",
+    "video_filename": "how old are you (1).mp4",
+    "gloss": "HOW OLD YOU",
+    "sentence": "how old are you",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "what happened",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\what happened\\MVI_6495.MP4",
+    "video_filename": "MVI_6495.MP4",
+    "gloss": "WHAT HAPPENED",
+    "sentence": "what happened",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "turn on light turn off light",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\turn on light turn off light\\turn on.MP4",
+    "video_filename": "turn on.MP4",
+    "gloss": "TURN ON LIGHT TURN OFF LIGHT",
+    "sentence": "turn on light turn off light",
+    "gloss_length": 6
+  },
+  {
+    "folder_name": "it was nice chatting with you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\it was nice chatting with you\\MVI_6724.MP4",
+    "video_filename": "MVI_6724.MP4",
+    "gloss": "IT NICE CHAT WITH YOU",
+    "sentence": "it was nice chatting with you",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "i enjoyed a lot",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i enjoyed a lot\\enjoy.MP4",
+    "video_filename": "enjoy.MP4",
+    "gloss": "I ENJOYED A LOT",
+    "sentence": "i enjoyed a lot",
+    "gloss_length": 4
+  },
+  {
+    "folder_name": "it was nice chatting with you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\it was nice chatting with you\\MVI_6542.MP4",
+    "video_filename": "MVI_6542.MP4",
+    "gloss": "IT NICE CHAT WITH YOU",
+    "sentence": "it was nice chatting with you",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "you are good",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\you are good\\good (3).MP4",
+    "video_filename": "good (3).MP4",
+    "gloss": "YOU GOOD",
+    "sentence": "you are good",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "do not hurt me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\do not hurt me\\do not hurt me (2).mp4",
+    "video_filename": "do not hurt me (2).mp4",
+    "gloss": "DONOT HURT ME",
+    "sentence": "do not hurt me",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "he is on the way",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\he is on the way\\way.MP4",
+    "video_filename": "way.MP4",
+    "gloss": "HE ON WAY",
+    "sentence": "he is on the way",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "i am fine. thank you sir",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i am fine. thank you sir\\fine thank.MP4",
+    "video_filename": "fine thank.MP4",
+    "gloss": "I FINE. THANK YOU SIR",
+    "sentence": "i am fine. thank you sir",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "it was nice chatting with you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\it was nice chatting with you\\it was nice chatting with you (2).mp4",
+    "video_filename": "it was nice chatting with you (2).mp4",
+    "gloss": "IT NICE CHAT WITH YOU",
+    "sentence": "it was nice chatting with you",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "help me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\help me\\help me (6).mp4",
+    "video_filename": "help me (6).mp4",
+    "gloss": "HELP ME",
+    "sentence": "help me",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "wear the shirt",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\wear the shirt\\wear the shirt (2).mp4",
+    "video_filename": "wear the shirt (2).mp4",
+    "gloss": "WEAR SHIRT",
+    "sentence": "wear the shirt",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "it was nice chatting with you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\it was nice chatting with you\\MVI_6398.MP4",
+    "video_filename": "MVI_6398.MP4",
+    "gloss": "IT NICE CHAT WITH YOU",
+    "sentence": "it was nice chatting with you",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "you are good",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\you are good\\good.MP4",
+    "video_filename": "good.MP4",
+    "gloss": "YOU GOOD",
+    "sentence": "you are good",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "i am fine. thank you sir",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i am fine. thank you sir\\fine thank (4).MP4",
+    "video_filename": "fine thank (4).MP4",
+    "gloss": "I FINE. THANK YOU SIR",
+    "sentence": "i am fine. thank you sir",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "how old are you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\how old are you\\how old are you (4).MP4",
+    "video_filename": "how old are you (4).MP4",
+    "gloss": "HOW OLD YOU",
+    "sentence": "how old are you",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "help me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\help me\\help me (3).MP4",
+    "video_filename": "help me (3).MP4",
+    "gloss": "HELP ME",
+    "sentence": "help me",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "he is on the way",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\he is on the way\\way (3).MP4",
+    "video_filename": "way (3).MP4",
+    "gloss": "HE ON WAY",
+    "sentence": "he is on the way",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "turn on light turn off light",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\turn on light turn off light\\turn on (5).MP4",
+    "video_filename": "turn on (5).MP4",
+    "gloss": "TURN ON LIGHT TURN OFF LIGHT",
+    "sentence": "turn on light turn off light",
+    "gloss_length": 6
+  },
+  {
+    "folder_name": "it was nice chatting with you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\it was nice chatting with you\\it was nice chatting with you.mp4",
+    "video_filename": "it was nice chatting with you.mp4",
+    "gloss": "IT NICE CHAT WITH YOU",
+    "sentence": "it was nice chatting with you",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "i enjoyed a lot",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i enjoyed a lot\\enjoyed (3).MP4",
+    "video_filename": "enjoyed (3).MP4",
+    "gloss": "I ENJOYED A LOT",
+    "sentence": "i enjoyed a lot",
+    "gloss_length": 4
+  },
+  {
+    "folder_name": "i am fine. thank you sir",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i am fine. thank you sir\\fine thank (5).MP4",
+    "video_filename": "fine thank (5).MP4",
+    "gloss": "I FINE. THANK YOU SIR",
+    "sentence": "i am fine. thank you sir",
+    "gloss_length": 5
+  },
+  {
+    "folder_name": "how old are you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\how old are you\\how old are you (6).MP4",
+    "video_filename": "how old are you (6).MP4",
+    "gloss": "HOW OLD YOU",
+    "sentence": "how old are you",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "i enjoyed a lot",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i enjoyed a lot\\enjoy (2).MP4",
+    "video_filename": "enjoy (2).MP4",
+    "gloss": "I ENJOYED A LOT",
+    "sentence": "i enjoyed a lot",
+    "gloss_length": 4
+  },
+  {
+    "folder_name": "i enjoyed a lot",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i enjoyed a lot\\enjoyed.MP4",
+    "video_filename": "enjoyed.MP4",
+    "gloss": "I ENJOYED A LOT",
+    "sentence": "i enjoyed a lot",
+    "gloss_length": 4
+  },
+  {
+    "folder_name": "he is on the way",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\he is on the way\\way (4).MP4",
+    "video_filename": "way (4).MP4",
+    "gloss": "HE ON WAY",
+    "sentence": "he is on the way",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "wear the shirt",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\wear the shirt\\shirt (5).MP4",
+    "video_filename": "shirt (5).MP4",
+    "gloss": "WEAR SHIRT",
+    "sentence": "wear the shirt",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "you are good",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\you are good\\good (5).MP4",
+    "video_filename": "good (5).MP4",
+    "gloss": "YOU GOOD",
+    "sentence": "you are good",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "i enjoyed a lot",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i enjoyed a lot\\enjoyed (2).MP4",
+    "video_filename": "enjoyed (2).MP4",
+    "gloss": "I ENJOYED A LOT",
+    "sentence": "i enjoyed a lot",
+    "gloss_length": 4
+  },
+  {
+    "folder_name": "what happened",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\what happened\\happened (3).MP4",
+    "video_filename": "happened (3).MP4",
+    "gloss": "WHAT HAPPENED",
+    "sentence": "what happened",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "turn on light turn off light",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\turn on light turn off light\\turn on (4).MP4",
+    "video_filename": "turn on (4).MP4",
+    "gloss": "TURN ON LIGHT TURN OFF LIGHT",
+    "sentence": "turn on light turn off light",
+    "gloss_length": 6
+  },
+  {
+    "folder_name": "do not hurt me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\do not hurt me\\hurt me (2).MP4",
+    "video_filename": "hurt me (2).MP4",
+    "gloss": "DONOT HURT ME",
+    "sentence": "do not hurt me",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "wear the shirt",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\wear the shirt\\wear the shirt.mp4",
+    "video_filename": "wear the shirt.mp4",
+    "gloss": "WEAR SHIRT",
+    "sentence": "wear the shirt",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "he is on the way",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\he is on the way\\way (2).MP4",
+    "video_filename": "way (2).MP4",
+    "gloss": "HE ON WAY",
+    "sentence": "he is on the way",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "wear the shirt",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\wear the shirt\\shirt (2).MP4",
+    "video_filename": "shirt (2).MP4",
+    "gloss": "WEAR SHIRT",
+    "sentence": "wear the shirt",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "how old are you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\how old are you\\how old are you (3).MP4",
+    "video_filename": "how old are you (3).MP4",
+    "gloss": "HOW OLD YOU",
+    "sentence": "how old are you",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "do not hurt me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\do not hurt me\\hurt me (3).MP4",
+    "video_filename": "hurt me (3).MP4",
+    "gloss": "DONOT HURT ME",
+    "sentence": "do not hurt me",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "turn on light turn off light",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\turn on light turn off light\\turn on light turn off light.mp4",
+    "video_filename": "turn on light turn off light.mp4",
+    "gloss": "TURN ON LIGHT TURN OFF LIGHT",
+    "sentence": "turn on light turn off light",
+    "gloss_length": 6
+  },
+  {
+    "folder_name": "what happened",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\what happened\\happened (2).MP4",
+    "video_filename": "happened (2).MP4",
+    "gloss": "WHAT HAPPENED",
+    "sentence": "what happened",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "what happened",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\what happened\\what happened.mp4",
+    "video_filename": "what happened.mp4",
+    "gloss": "WHAT HAPPENED",
+    "sentence": "what happened",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "turn on light turn off light",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\turn on light turn off light\\turn on lightturn off light.mp4",
+    "video_filename": "turn on lightturn off light.mp4",
+    "gloss": "TURN ON LIGHT TURN OFF LIGHT",
+    "sentence": "turn on light turn off light",
+    "gloss_length": 6
+  },
+  {
+    "folder_name": "you are good",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\you are good\\you are good (2).mp4",
+    "video_filename": "you are good (2).mp4",
+    "gloss": "YOU GOOD",
+    "sentence": "you are good",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "do not hurt me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\do not hurt me\\hurt me (4).MP4",
+    "video_filename": "hurt me (4).MP4",
+    "gloss": "DONOT HURT ME",
+    "sentence": "do not hurt me",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "help me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\help me\\help me (5).MP4",
+    "video_filename": "help me (5).MP4",
+    "gloss": "HELP ME",
+    "sentence": "help me",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "help me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\help me\\help me (7).mp4",
+    "video_filename": "help me (7).mp4",
+    "gloss": "HELP ME",
+    "sentence": "help me",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "wear the shirt",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\wear the shirt\\shirt (3).MP4",
+    "video_filename": "shirt (3).MP4",
+    "gloss": "WEAR SHIRT",
+    "sentence": "wear the shirt",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "do not hurt me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\do not hurt me\\do not hurt me.mp4",
+    "video_filename": "do not hurt me.mp4",
+    "gloss": "DONOT HURT ME",
+    "sentence": "do not hurt me",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "how old are you",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\how old are you\\how old are you (5).MP4",
+    "video_filename": "how old are you (5).MP4",
+    "gloss": "HOW OLD YOU",
+    "sentence": "how old are you",
+    "gloss_length": 3
+  },
+  {
+    "folder_name": "help me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\help me\\help me (8).MP4",
+    "video_filename": "help me (8).MP4",
+    "gloss": "HELP ME",
+    "sentence": "help me",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "turn on light turn off light",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\turn on light turn off light\\turn on (2).MP4",
+    "video_filename": "turn on (2).MP4",
+    "gloss": "TURN ON LIGHT TURN OFF LIGHT",
+    "sentence": "turn on light turn off light",
+    "gloss_length": 6
+  },
+  {
+    "folder_name": "help me",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\help me\\help me (4).MP4",
+    "video_filename": "help me (4).MP4",
+    "gloss": "HELP ME",
+    "sentence": "help me",
+    "gloss_length": 2
+  },
+  {
+    "folder_name": "i am fine. thank you sir",
+    "video_path": "D:\\Please_work_sem5_EL\\videos\\i am fine. thank you sir\\i am fine. thank you sir (2).mp4",
+    "video_filename": "i am fine. thank you sir (2).mp4",
+    "gloss": "I FINE. THANK YOU SIR",
+    "sentence": "i am fine. thank you sir",
+    "gloss_length": 5
+  }
+]

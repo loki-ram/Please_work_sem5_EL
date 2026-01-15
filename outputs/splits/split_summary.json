@@ -1,0 +1,10 @@
+{
+  "total_samples": 687,
+  "train_samples": 542,
+  "val_samples": 69,
+  "test_samples": 76,
+  "train_ratio": 0.8,
+  "val_ratio": 0.1,
+  "test_ratio": 0.1,
+  "random_seed": 42
+}
