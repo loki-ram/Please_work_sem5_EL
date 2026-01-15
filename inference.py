@@ -198,7 +198,22 @@ class SignLanguageTranslator:
             
         Returns:
             Dictionary with translation results
+            
+        Raises:
+            FileNotFoundError: If video file doesn't exist
+            ValueError: If video processing fails
         """
+        # Validate input path
+        video_path = os.path.abspath(video_path)
+        if not os.path.exists(video_path):
+            raise FileNotFoundError(f"Video file not found: {video_path}")
+        
+        # Validate file extension
+        valid_extensions = {'.mp4', '.avi', '.mov', '.mkv', '.webm'}
+        _, ext = os.path.splitext(video_path)
+        if ext.lower() not in valid_extensions:
+            raise ValueError(f"Unsupported video format: {ext}. Supported: {valid_extensions}")
+        
         print(f"Processing video: {video_path}")
         
         # Extract features

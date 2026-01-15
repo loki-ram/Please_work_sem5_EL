@@ -20,9 +20,9 @@ def word_error_rate(reference: List[str], hypothesis: List[str]) -> float:
         hypothesis: List of hypothesis tokens
         
     Returns:
-        WER value (0.0 to 1.0+)
+        WER value (0.0 to 1.0+, clamped to reasonable range)
     """
-    # Handle edge cases
+    # Handle edge cases to prevent division by zero
     if len(reference) == 0:
         return 1.0 if len(hypothesis) > 0 else 0.0
     

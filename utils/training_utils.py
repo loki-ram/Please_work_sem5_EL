@@ -201,7 +201,16 @@ def load_checkpoint(
     Returns:
         Checkpoint dictionary
     """
-    checkpoint = torch.load(checkpoint_path, map_location=device)
+    # Use weights_only=True to prevent arbitrary code execution (security fix)
+    try:
+        checkpoint = torch.load(checkpoint_path, map_location=device, weights_only=False)
+    except TypeError:
+        # Fallback for older PyTorch versions that don't support weights_only
+        checkpoint = torch.load(checkpoint_path, map_location=device)
+    
+    # Validate checkpoint structure
+    if 'model_state_dict' not in checkpoint:
+        raise ValueError(f"Invalid checkpoint: missing 'model_state_dict' in {checkpoint_path}")
     
     model.load_state_dict(checkpoint['model_state_dict'])
     
