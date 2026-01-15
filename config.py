@@ -11,13 +11,13 @@ from typing import List, Tuple, Optional
 @dataclass
 class PathConfig:
     """Paths configuration."""
-    # Dataset paths
-    dataset_root: str = r"D:\Please_work_sem5_EL"
-    videos_dir: str = field(init=False)
-    gloss_csv: str = field(init=False)
+    # Dataset paths (Server paths)
+    dataset_root: str = "/media/rvcse22/CSERV/kortex_sem5"
+    videos_dir: str = "/media/rvcse22/CSERV/kortex_sem5/Videos_Sentence_Level_rams"
+    gloss_csv: str = "/media/rvcse22/CSERV/kortex_sem5/ramita/Please_work_sem5_EL/ISL Corpus sign glosses.csv"
     
     # Output paths
-    output_dir: str = r"D:\Please_work_sem5_EL\outputs"
+    output_dir: str = "/media/rvcse22/CSERV/kortex_sem5/ramita/output_kaggle"
     features_dir: str = field(init=False)
     checkpoints_dir: str = field(init=False)
     logs_dir: str = field(init=False)
@@ -27,8 +27,6 @@ class PathConfig:
     splits_dir: str = field(init=False)
     
     def __post_init__(self):
-        self.videos_dir = os.path.join(self.dataset_root, "videos")
-        self.gloss_csv = os.path.join(self.dataset_root, "ISL Corpus sign glosses.csv")
         
         self.features_dir = os.path.join(self.output_dir, "features")
         self.checkpoints_dir = os.path.join(self.output_dir, "checkpoints")
