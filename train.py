@@ -18,7 +18,8 @@ from torch.cuda.amp import GradScaler, autocast
 from tqdm import tqdm
 from typing import Dict, Tuple, Optional
 
-sys.path.append(os.path.dirname(os.path.abspath(__file__)))
+# Ensure project root is first on sys.path so local packages (e.g. `models`) are importable
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 
 from config import get_config, Config
 from data.vocabulary import (
@@ -27,6 +28,7 @@ from data.vocabulary import (
     build_vocabularies, 
     save_vocabularies
 )
+
 from data.dataset import create_dataloaders
 from data.split_dataset import load_splits, create_dataset_split, save_splits
 from models.stage1_model import VideoToGlossModel
