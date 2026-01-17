@@ -224,7 +224,10 @@ class DecoderConfig:
     eos_penalty: float = 5.0  # Subtract from EOS logit during training
     
     # Anti-shortcut: Decoder input dropout (forces reliance on encoder)
-    decoder_input_dropout: float = 0.2  # Probability to zero out prev token embedding
+    decoder_input_dropout: float = 0.3  # Increased from 0.2 for stronger grounding
+    
+    # Anti-shortcut: Freeze decoder embeddings for initial epochs
+    freeze_embedding_epochs: int = 10  # Freeze for first N epochs, then unfreeze
 
 
 @dataclass

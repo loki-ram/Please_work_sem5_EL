@@ -474,11 +474,32 @@ def train(config: Config):
     
     # Training loop
     logger.info(f"\nStarting training from epoch {start_epoch + 1}")
-    logger.info(f"CTC weight decay: {config.training.ctc_weight_start} → {config.training.ctc_weight_end}")
-    logger.info(f"Teacher forcing decay: {config.training.teacher_forcing_start} → {config.training.teacher_forcing_end}")
+    logger.info(f"CTC weight decay: {config.training.ctc_weight_start} -> {config.training.ctc_weight_end}")
+    logger.info(f"Teacher forcing (stepped): 1.0 -> 0.6 -> 0.4 -> 0.25")
+    logger.info(f"Decoder embedding frozen for first {config.model.decoder.freeze_embedding_epochs} epochs")
     
     for epoch in range(start_epoch, config.training.num_epochs):
         epoch_start_time = time.time()
+        
+        # =================================================================
+        # ANTI-SHORTCUT: Freeze/Unfreeze decoder embeddings
+        # Freeze for first N epochs to prevent embedding-based shortcuts
+        # =================================================================
+        freeze_epochs = config.model.decoder.freeze_embedding_epochs
+        if epoch < freeze_epochs:
+            # Freeze decoder embeddings
+            for param in model.decoder.embedding.parameters():
+                param.requires_grad = False
+            embedding_status = "FROZEN"
+        else:
+            # Unfreeze decoder embeddings
+            for param in model.decoder.embedding.parameters():
+                param.requires_grad = True
+            embedding_status = "TRAINABLE"
+        
+        # Log embedding status at transition point
+        if epoch == 0 or epoch == freeze_epochs:
+            logger.info(f"\n[Epoch {epoch+1}] Decoder embeddings: {embedding_status}")
         
         # Train
         train_metrics = train_epoch(
