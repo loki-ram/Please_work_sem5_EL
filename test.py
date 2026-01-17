@@ -31,7 +31,7 @@ def load_model_from_checkpoint(
     gloss_vocab,
     text_vocab
 ) -> HybridSignToTextModel:
-    """Load model from checkpoint. Accepts a file path or a directory (picks latest)."""
+    """Load model from checkpoint. Accepts a file path or a directory (picks latest_best.pt)."""
     model = HybridSignToTextModel(
         input_size=config.model.encoder.input_size,
         conv_channels=config.model.encoder.conv_channels,
@@ -51,20 +51,32 @@ def load_model_from_checkpoint(
         text_pad_idx=text_vocab.pad_idx,
         text_sos_idx=text_vocab.sos_idx,
         text_eos_idx=text_vocab.eos_idx,
-        max_decode_length=config.model.decoder.max_decode_length
+        max_decode_length=config.model.decoder.max_decode_length,
+        use_encoder_projection=config.model.encoder.use_encoder_projection,
+        encoder_projection_dim=config.model.encoder.encoder_projection_dim,
+        attention_entropy_weight=config.training.attention_entropy_weight,
+        min_eos_step=config.model.decoder.min_eos_step,
+        eos_penalty=config.model.decoder.eos_penalty,
+        decoder_input_dropout=config.model.decoder.decoder_input_dropout
     )
     
-    # If directory provided, pick most recent checkpoint file
+    # If directory provided, look for latest_best.pt first, then pick most recent
     if os.path.isdir(checkpoint_path):
-        patterns = [os.path.join(checkpoint_path, '*' + ext) for ext in ('.pt', '.pth', '.ckpt', '.tar')]
-        files = []
-        for p in patterns:
-            files.extend(glob.glob(p))
-        if not files:
-            raise FileNotFoundError(f"No checkpoint files found in directory: {checkpoint_path}")
-        files.sort(key=lambda x: os.path.getmtime(x), reverse=True)
-        checkpoint_file = files[0]
-        print(f"Using checkpoint file: {checkpoint_file}")
+        # Prefer latest_best.pt if it exists
+        best_checkpoint = os.path.join(checkpoint_path, 'latest_best.pt')
+        if os.path.exists(best_checkpoint):
+            checkpoint_file = best_checkpoint
+            print(f"Using best checkpoint: {checkpoint_file}")
+        else:
+            patterns = [os.path.join(checkpoint_path, '*' + ext) for ext in ('.pt', '.pth', '.ckpt', '.tar')]
+            files = []
+            for p in patterns:
+                files.extend(glob.glob(p))
+            if not files:
+                raise FileNotFoundError(f"No checkpoint files found in directory: {checkpoint_path}")
+            files.sort(key=lambda x: os.path.getmtime(x), reverse=True)
+            checkpoint_file = files[0]
+            print(f"Using checkpoint file: {checkpoint_file}")
     else:
         checkpoint_file = checkpoint_path
     
@@ -143,8 +155,10 @@ def main():
                         help='Device to use')
     parser.add_argument('--batch-size', type=int, default=None,
                         help='Batch size for evaluation')
-    parser.add_argument('--full-dataset', action='store_true',
-                        help='Evaluate on entire dataset (train + val + test)')
+    parser.add_argument('--full-dataset', action='store_true', default=True,
+                        help='Evaluate on entire dataset (train + val + test) - default: True')
+    parser.add_argument('--test-only', action='store_true',
+                        help='Evaluate only on test set (overrides --full-dataset)')
     
     args = parser.parse_args()
     
@@ -170,8 +184,11 @@ def main():
     # Update config
     config.update_vocab_sizes(len(gloss_vocab), len(text_vocab))
     
+    # Handle --test-only flag (overrides --full-dataset)
+    use_full_dataset = args.full_dataset and not args.test_only
+    
     # Create dataloader
-    if args.full_dataset:
+    if use_full_dataset:
         print("\nLoading entire dataset (train + val + test)...")
         # Load all splits
         with open(config.paths.train_split_path, 'r', encoding='utf-8') as f:
@@ -217,7 +234,7 @@ def main():
     print(f"Model parameters: {total_params:,}")
     
     # Evaluate
-    eval_set_name = "entire dataset" if args.full_dataset else "test set"
+    eval_set_name = "entire dataset" if use_full_dataset else "test set"
     print(f"\nEvaluating on {eval_set_name}...")
     results = evaluate(model, eval_loader, text_vocab, device)
     
