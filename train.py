@@ -418,7 +418,11 @@ def train(config: Config):
         max_decode_length=config.model.decoder.max_decode_length,
         use_encoder_projection=config.model.encoder.use_encoder_projection,
         encoder_projection_dim=config.model.encoder.encoder_projection_dim,
-        attention_entropy_weight=config.training.attention_entropy_weight
+        attention_entropy_weight=config.training.attention_entropy_weight,
+        # Anti-shortcut parameters
+        min_eos_step=config.model.decoder.min_eos_step,
+        eos_penalty=config.model.decoder.eos_penalty,
+        decoder_input_dropout=config.model.decoder.decoder_input_dropout
     ).to(device)
     
     # Count parameters

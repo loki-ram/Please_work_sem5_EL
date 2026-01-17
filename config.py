@@ -173,8 +173,8 @@ class EncoderConfig:
     conv_stride: int = 2
     num_conv_layers: int = 2
     
-    # BiGRU layers (increased from 256 to 384 for stronger encoder signal)
-    gru_hidden_size: int = 384
+    # BiGRU layers (increased to 512 for stronger encoder signal)
+    gru_hidden_size: int = 512
     gru_num_layers: int = 2
     gru_dropout: float = 0.3
     gru_bidirectional: bool = True
@@ -218,6 +218,13 @@ class DecoderConfig:
     
     # Decoding
     max_decode_length: int = 50
+    
+    # Anti-shortcut: Early EOS penalty during training
+    min_eos_step: int = 2  # Don't allow EOS before this step
+    eos_penalty: float = 5.0  # Subtract from EOS logit during training
+    
+    # Anti-shortcut: Decoder input dropout (forces reliance on encoder)
+    decoder_input_dropout: float = 0.2  # Probability to zero out prev token embedding
 
 
 @dataclass
@@ -305,14 +312,21 @@ class TrainingConfig:
         )
     
     def get_teacher_forcing_ratio(self, epoch: int) -> float:
-        """Get teacher forcing ratio for current epoch with linear decay."""
-        if epoch >= self.teacher_forcing_decay_epochs:
-            return self.teacher_forcing_end
-        
-        decay_ratio = epoch / self.teacher_forcing_decay_epochs
-        return self.teacher_forcing_start - decay_ratio * (
-            self.teacher_forcing_start - self.teacher_forcing_end
-        )
+        """
+        Get teacher forcing ratio with STEPPED schedule for harder grounding.
+        Epochs 0-20:  1.0 (full teacher forcing)
+        Epochs 21-40: 0.6
+        Epochs 41-60: 0.4
+        Epochs 61+:   0.25
+        """
+        if epoch <= 20:
+            return 1.0
+        elif epoch <= 40:
+            return 0.6
+        elif epoch <= 60:
+            return 0.4
+        else:
+            return 0.25
 
 
 # ============================================================================

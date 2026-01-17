@@ -354,7 +354,7 @@ class HybridSignToTextModel(nn.Module):
         conv_channels: int = 256,
         conv_kernel_size: int = 5,
         conv_stride: int = 2,
-        gru_hidden_size: int = 384,  # Increased from 256
+        gru_hidden_size: int = 512,  # Increased to 512 for stronger encoder
         gru_num_layers: int = 2,
         gru_dropout: float = 0.3,
         decoder_embedding_dim: int = 256,
@@ -371,7 +371,12 @@ class HybridSignToTextModel(nn.Module):
         max_decode_length: int = 50,
         use_encoder_projection: bool = True,
         encoder_projection_dim: int = 512,
-        attention_entropy_weight: float = 0.01
+        attention_entropy_weight: float = 0.01,
+        # Anti-shortcut: Early EOS penalty
+        min_eos_step: int = 2,
+        eos_penalty: float = 5.0,
+        # Anti-shortcut: Decoder input dropout
+        decoder_input_dropout: float = 0.2
     ):
         super().__init__()
         
@@ -384,6 +389,12 @@ class HybridSignToTextModel(nn.Module):
         self.max_decode_length = max_decode_length
         self.use_encoder_projection = use_encoder_projection
         self.attention_entropy_weight = attention_entropy_weight
+        
+        # Anti-shortcut parameters
+        self.min_eos_step = min_eos_step
+        self.eos_penalty = eos_penalty
+        self.decoder_input_dropout_rate = decoder_input_dropout
+        self.decoder_input_dropout = nn.Dropout(decoder_input_dropout)
         
         # =====================================================================
         # Shared Encoder
@@ -556,9 +567,30 @@ class HybridSignToTextModel(nn.Module):
         
         # Decode step by step
         for t in range(1, tgt_len):
-            logits, hidden, attn_weights = self.decoder.forward_step(
-                input_token, hidden, encoder_outputs, encoder_mask
-            )
+            # =================================================================
+            # ANTI-SHORTCUT: Decoder input dropout during training
+            # Zero out previous token embedding with probability 0.2
+            # Forces decoder to rely on encoder attention
+            # =================================================================
+            if self.training and self.decoder_input_dropout_rate > 0:
+                # Get embedding and apply dropout
+                embedded = self.decoder.embedding(input_token.unsqueeze(1))
+                embedded = self.decoder_input_dropout(embedded)
+                # Forward step with modified embedding
+                logits, hidden, attn_weights = self._decoder_forward_with_embedding(
+                    embedded, hidden, encoder_outputs, encoder_mask
+                )
+            else:
+                logits, hidden, attn_weights = self.decoder.forward_step(
+                    input_token, hidden, encoder_outputs, encoder_mask
+                )
+            
+            # =================================================================
+            # ANTI-SHORTCUT: Early EOS penalty during training
+            # Subtract large bias from EOS logit for first min_eos_step steps
+            # =================================================================
+            if self.training and t <= self.min_eos_step:
+                logits[:, self.text_eos_idx] = logits[:, self.text_eos_idx] - self.eos_penalty
             
             outputs[:, t - 1] = logits
             all_attention_weights.append(attn_weights)
@@ -574,6 +606,33 @@ class HybridSignToTextModel(nn.Module):
         attention_weights = torch.stack(all_attention_weights, dim=1)
         
         return outputs, ctc_log_probs, enc_lengths, attention_weights
+    
+    def _decoder_forward_with_embedding(
+        self,
+        embedded: torch.Tensor,
+        hidden: torch.Tensor,
+        encoder_outputs: torch.Tensor,
+        encoder_mask: torch.Tensor
+    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor]:
+        """
+        Forward step with pre-computed embedding (for decoder input dropout).
+        """
+        # Get attention context using last layer's hidden state
+        context, attn_weights = self.decoder.attention(
+            encoder_outputs, hidden[-1], encoder_mask
+        )
+        
+        # Concatenate embedding with context
+        gru_input = torch.cat([embedded, context.unsqueeze(1)], dim=-1)
+        
+        # GRU step
+        output, hidden = self.decoder.gru(gru_input, hidden)
+        
+        # Project to vocabulary
+        output_combined = torch.cat([output.squeeze(1), context], dim=-1)
+        logits = self.decoder.output_proj(output_combined)
+        
+        return logits, hidden, attn_weights
     
     def compute_attention_entropy_loss(
         self,
@@ -683,9 +742,12 @@ class HybridSignToTextModel(nn.Module):
         features: torch.Tensor,
         feature_lengths: torch.Tensor,
         max_length: Optional[int] = None
-    ) -> Tuple[torch.Tensor, List[List[int]]]:
+    ) -> torch.Tensor:
         """
         Greedy decoding for inference (attention decoder only).
+        
+        Anti-shortcut: Enforces minimum output length by disallowing EOS
+        before min_eos_step decoded tokens.
         
         Args:
             features: Input features (batch, seq_len, input_size)
@@ -693,8 +755,7 @@ class HybridSignToTextModel(nn.Module):
             max_length: Maximum decoding length
             
         Returns:
-            Tuple of (decoded_ids, attention_weights_list)
-            - decoded_ids: (batch, max_length)
+            decoded_ids: (batch, max_length)
         """
         if max_length is None:
             max_length = self.max_decode_length
@@ -721,10 +782,17 @@ class HybridSignToTextModel(nn.Module):
                 input_token, hidden, encoder_outputs, encoder_mask
             )
             
+            # =================================================================
+            # ANTI-SHORTCUT: Minimum output length at inference
+            # Disallow EOS before min_eos_step decoded tokens
+            # =================================================================
+            if t <= self.min_eos_step:
+                logits[:, self.text_eos_idx] = float('-inf')
+            
             next_token = logits.argmax(dim=-1)
             decoded[:, t] = next_token
             
-            # Check for EOS
+            # Check for EOS (only after minimum steps)
             finished = finished | (next_token == self.text_eos_idx)
             if finished.all():
                 break
