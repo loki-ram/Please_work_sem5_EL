@@ -155,6 +155,96 @@ def _levenshtein_distance(s1: List[str], s2: List[str]) -> int:
     return previous_row[-1]
 
 
+def compute_wer_single(prediction: str, reference: str) -> float:
+    """
+    Compute Word Error Rate (WER) for a single sample.
+    
+    Args:
+        prediction: Predicted sentence
+        reference: Reference sentence
+        
+    Returns:
+        WER score for this sample (lower is better)
+    """
+    pred_tokens = prediction.strip().lower().split()
+    ref_tokens = reference.strip().lower().split()
+    
+    if len(ref_tokens) == 0:
+        return 0.0 if len(pred_tokens) == 0 else 1.0
+    
+    edits = _levenshtein_distance(pred_tokens, ref_tokens)
+    return edits / len(ref_tokens)
+
+
+def compute_bleu_single(
+    prediction: str,
+    reference: str,
+    max_n: int = 4,
+    smoothing: bool = True
+) -> float:
+    """
+    Compute BLEU score for a single sample.
+    
+    Args:
+        prediction: Predicted sentence
+        reference: Reference sentence
+        max_n: Maximum n-gram order
+        smoothing: Whether to apply smoothing
+        
+    Returns:
+        BLEU score (0-1)
+    """
+    pred_tokens = prediction.strip().lower().split()
+    ref_tokens = reference.strip().lower().split()
+    
+    if len(pred_tokens) == 0:
+        return 0.0
+    
+    precisions = []
+    
+    for n in range(1, max_n + 1):
+        pred_ngrams = _get_ngrams(pred_tokens, n)
+        ref_ngrams = _get_ngrams(ref_tokens, n)
+        
+        if len(pred_ngrams) == 0:
+            if smoothing:
+                precisions.append(1.0 / (n + 1))  # Smoothing for short sentences
+            else:
+                precisions.append(0.0)
+            continue
+        
+        ref_counter = Counter(ref_ngrams)
+        match_count = 0
+        for ngram in pred_ngrams:
+            if ref_counter[ngram] > 0:
+                match_count += 1
+                ref_counter[ngram] -= 1
+        
+        if smoothing and match_count == 0:
+            precision = 1.0 / (len(pred_ngrams) + 1)
+        else:
+            precision = match_count / len(pred_ngrams)
+        
+        precisions.append(precision)
+    
+    # Brevity penalty
+    if len(pred_tokens) > len(ref_tokens):
+        bp = 1.0
+    elif len(ref_tokens) == 0:
+        bp = 0.0
+    else:
+        bp = np.exp(1 - len(ref_tokens) / len(pred_tokens))
+    
+    # Geometric mean of precisions
+    if any(p == 0 for p in precisions):
+        return 0.0
+    
+    log_precisions = [np.log(p) for p in precisions]
+    geo_mean = np.exp(sum(log_precisions) / len(log_precisions))
+    
+    return bp * geo_mean
+
+
 def compute_exact_match(
     predictions: List[str],
     references: List[str]

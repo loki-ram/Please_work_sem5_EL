@@ -20,7 +20,7 @@ from config import get_config, Config
 from models.hybrid_model import HybridSignToTextModel
 from data.vocabulary import load_vocabularies
 from data.dataset import create_dataloaders, HybridDataset, create_collate_fn
-from utils.metrics import compute_bleu, compute_wer, compute_exact_match
+from utils.metrics import compute_bleu, compute_wer, compute_exact_match, compute_bleu_single, compute_wer_single
 
 
 def load_model_from_checkpoint(
@@ -296,10 +296,12 @@ def main():
     if args.csv_output:
         with open(args.csv_output, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow(['index', 'split', 'reference', 'prediction', 'correct'])
+            writer.writerow(['index', 'split', 'reference', 'prediction', 'correct', 'wer', 'bleu'])
             
             for i, (ref, pred) in enumerate(zip(results['references'], results['predictions'])):
                 is_correct = pred.strip().lower() == ref.strip().lower()
+                sample_wer = compute_wer_single(pred, ref)
+                sample_bleu = compute_bleu_single(pred, ref)
                 
                 # Determine which split this sample belongs to
                 if split_info:
@@ -312,9 +314,10 @@ def main():
                 else:
                     split = 'test'
                 
-                writer.writerow([i + 1, split, ref, pred, is_correct])
+                writer.writerow([i + 1, split, ref, pred, is_correct, f"{sample_wer:.4f}", f"{sample_bleu:.4f}"])
         
         print(f"Predictions saved to CSV: {args.csv_output}")
+        print(f"Total samples in CSV: {len(results['predictions'])}")
     
     print("\n[OK] Evaluation completed!")
 
