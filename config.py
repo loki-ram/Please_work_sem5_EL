@@ -21,10 +21,10 @@ class PathConfig:
     video_root: str = "/media/rvcse22/CSERV/kortex_sem5/Videos_Sentence_Level_rams"
     
     # Dataset split files (train.json, val.json, test.json)
-    splits_dir: str = "/media/rvcse22/CSERV/kortex_sem5/ramita/Please_work_sem5_EL/outputs/splits"
+    splits_dir: str = "/media/rvcse22/CSERV/kortex_sem5/ramita/kaggle2/Please_work_sem5_EL/outputs/splits"
     
     # Output directories (features, checkpoints, vocab, etc.)
-    output_dir: str = "/media/rvcse22/CSERV/kortex_sem5/ramita/hybrid_model_output"
+    output_dir: str = "/media/rvcse22/CSERV/kortex_sem5/ramita/kaggle2/Please_work_sem5_EL/outputs"
     
     # Derived paths (set in __post_init__)
     features_dir: str = field(init=False)
