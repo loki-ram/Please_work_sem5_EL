@@ -198,14 +198,19 @@ def main():
         with open(config.paths.test_split_path, 'r', encoding='utf-8') as f:
             test_samples = json.load(f)
         
-        # Combine all samples
-        all_samples = train_samples + val_samples + test_samples
-        print(f"Total samples: {len(all_samples)} (train: {len(train_samples)}, val: {len(val_samples)}, test: {len(test_samples)})")
+        print(f"Total samples: {len(train_samples) + len(val_samples) + len(test_samples)} (train: {len(train_samples)}, val: {len(val_samples)}, test: {len(test_samples)})")
         
-        # Create combined dataset
-        full_dataset = HybridDataset(
-            all_samples, gloss_vocab, text_vocab, config, 'test'
-        )
+        # Create separate datasets for each split (they look for features in different directories)
+        train_dataset = HybridDataset(train_samples, gloss_vocab, text_vocab, config, 'train')
+        val_dataset = HybridDataset(val_samples, gloss_vocab, text_vocab, config, 'val')
+        test_dataset = HybridDataset(test_samples, gloss_vocab, text_vocab, config, 'test')
+        
+        print(f"Valid samples: train={len(train_dataset)}, val={len(val_dataset)}, test={len(test_dataset)}")
+        
+        # Concatenate all datasets
+        full_dataset = ConcatDataset([train_dataset, val_dataset, test_dataset])
+        print(f"Total valid samples for evaluation: {len(full_dataset)}")
+        
         collate_fn = create_collate_fn(gloss_vocab, text_vocab)
         
         eval_loader = DataLoader(
