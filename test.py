@@ -211,6 +211,13 @@ def main():
         full_dataset = ConcatDataset([train_dataset, val_dataset, test_dataset])
         print(f"Total valid samples for evaluation: {len(full_dataset)}")
         
+        # Track split boundaries for CSV output
+        split_info = {
+            'train_count': len(train_dataset),
+            'val_count': len(val_dataset),
+            'test_count': len(test_dataset)
+        }
+        
         collate_fn = create_collate_fn(gloss_vocab, text_vocab)
         
         eval_loader = DataLoader(
@@ -226,6 +233,7 @@ def main():
         print("\nLoading test data...")
         _, _, eval_loader = create_dataloaders(config, gloss_vocab, text_vocab)
         print(f"Test batches: {len(eval_loader)}")
+        split_info = None  # No split info for test-only
     
     # Load model
     print("\nLoading model from checkpoint...")
@@ -288,10 +296,23 @@ def main():
     if args.csv_output:
         with open(args.csv_output, 'w', newline='', encoding='utf-8') as f:
             writer = csv.writer(f)
-            writer.writerow(['index', 'reference', 'prediction', 'correct'])
+            writer.writerow(['index', 'split', 'reference', 'prediction', 'correct'])
+            
             for i, (ref, pred) in enumerate(zip(results['references'], results['predictions'])):
                 is_correct = pred.strip().lower() == ref.strip().lower()
-                writer.writerow([i + 1, ref, pred, is_correct])
+                
+                # Determine which split this sample belongs to
+                if split_info:
+                    if i < split_info['train_count']:
+                        split = 'train'
+                    elif i < split_info['train_count'] + split_info['val_count']:
+                        split = 'val'
+                    else:
+                        split = 'test'
+                else:
+                    split = 'test'
+                
+                writer.writerow([i + 1, split, ref, pred, is_correct])
         
         print(f"Predictions saved to CSV: {args.csv_output}")
     
