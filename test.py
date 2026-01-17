@@ -10,13 +10,14 @@ import sys
 import json
 import argparse
 import torch
+from torch.utils.data import DataLoader, ConcatDataset
 from tqdm import tqdm
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import get_config, Config
 from models.hybrid_model import HybridSignToTextModel
 from data.vocabulary import load_vocabularies
-from data.dataset import create_dataloaders
+from data.dataset import create_dataloaders, HybridDataset, create_collate_fn
 from utils.metrics import compute_bleu, compute_wer, compute_exact_match
 
 
@@ -115,6 +116,8 @@ def main():
                         help='Device to use')
     parser.add_argument('--batch-size', type=int, default=None,
                         help='Batch size for evaluation')
+    parser.add_argument('--full-dataset', action='store_true',
+                        help='Evaluate on entire dataset (train + val + test)')
     
     args = parser.parse_args()
     
@@ -140,10 +143,40 @@ def main():
     # Update config
     config.update_vocab_sizes(len(gloss_vocab), len(text_vocab))
     
-    # Create dataloader (test split only)
-    print("\nLoading test data...")
-    _, _, test_loader = create_dataloaders(config, gloss_vocab, text_vocab)
-    print(f"Test batches: {len(test_loader)}")
+    # Create dataloader
+    if args.full_dataset:
+        print("\nLoading entire dataset (train + val + test)...")
+        # Load all splits
+        with open(config.paths.train_split_path, 'r', encoding='utf-8') as f:
+            train_samples = json.load(f)
+        with open(config.paths.val_split_path, 'r', encoding='utf-8') as f:
+            val_samples = json.load(f)
+        with open(config.paths.test_split_path, 'r', encoding='utf-8') as f:
+            test_samples = json.load(f)
+        
+        # Combine all samples
+        all_samples = train_samples + val_samples + test_samples
+        print(f"Total samples: {len(all_samples)} (train: {len(train_samples)}, val: {len(val_samples)}, test: {len(test_samples)})")
+        
+        # Create combined dataset
+        full_dataset = HybridDataset(
+            all_samples, gloss_vocab, text_vocab, config, 'test'
+        )
+        collate_fn = create_collate_fn(gloss_vocab, text_vocab)
+        
+        eval_loader = DataLoader(
+            full_dataset,
+            batch_size=config.training.batch_size,
+            shuffle=False,
+            num_workers=config.training.num_workers,
+            collate_fn=collate_fn,
+            pin_memory=config.training.pin_memory
+        )
+        print(f"Total batches: {len(eval_loader)}")
+    else:
+        print("\nLoading test data...")
+        _, _, eval_loader = create_dataloaders(config, gloss_vocab, text_vocab)
+        print(f"Test batches: {len(eval_loader)}")
     
     # Load model
     print("\nLoading model from checkpoint...")
@@ -157,8 +190,9 @@ def main():
     print(f"Model parameters: {total_params:,}")
     
     # Evaluate
-    print("\nEvaluating on test set...")
-    results = evaluate(model, test_loader, text_vocab, device)
+    eval_set_name = "entire dataset" if args.full_dataset else "test set"
+    print(f"\nEvaluating on {eval_set_name}...")
+    results = evaluate(model, eval_loader, text_vocab, device)
     
     # Print results
     print("\n" + "=" * 60)
