@@ -173,16 +173,21 @@ class EncoderConfig:
     conv_stride: int = 2
     num_conv_layers: int = 2
     
-    # BiGRU layers
-    gru_hidden_size: int = 256
+    # BiGRU layers (increased from 256 to 384 for stronger encoder signal)
+    gru_hidden_size: int = 384
     gru_num_layers: int = 2
     gru_dropout: float = 0.3
     gru_bidirectional: bool = True
     
+    # Encoder output projection (strengthens encoder -> attention signal)
+    use_encoder_projection: bool = True
+    encoder_projection_dim: int = 512  # Project to this dim before attention
+    
     @property
     def encoder_output_size(self) -> int:
         """Output size from BiGRU (2x hidden if bidirectional)."""
-        return self.gru_hidden_size * (2 if self.gru_bidirectional else 1)
+        base_size = self.gru_hidden_size * (2 if self.gru_bidirectional else 1)
+        return self.encoder_projection_dim if self.use_encoder_projection else base_size
 
 
 @dataclass
@@ -265,10 +270,15 @@ class TrainingConfig:
     ctc_weight_end: float = 0.2    # α decays to 0.2
     ctc_weight_decay_epochs: int = 50  # Epochs to decay over
     
-    # Teacher forcing
+    # Teacher forcing (MORE AGGRESSIVE DECAY for visual grounding)
+    # Reaches ~0.5 by epoch 40, ~0.3 by epoch 60
     teacher_forcing_start: float = 1.0
-    teacher_forcing_end: float = 0.7
-    teacher_forcing_decay_epochs: int = 30
+    teacher_forcing_end: float = 0.2
+    teacher_forcing_decay_epochs: int = 70
+    
+    # Attention regularization (entropy penalty for grounding)
+    attention_entropy_weight: float = 0.01  # Penalize low-entropy (peaked) attention
+    use_attention_entropy_reg: bool = True
     
     # Mixed precision (AMP) for A100
     use_amp: bool = True

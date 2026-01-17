@@ -354,7 +354,7 @@ class HybridSignToTextModel(nn.Module):
         conv_channels: int = 256,
         conv_kernel_size: int = 5,
         conv_stride: int = 2,
-        gru_hidden_size: int = 256,
+        gru_hidden_size: int = 384,  # Increased from 256
         gru_num_layers: int = 2,
         gru_dropout: float = 0.3,
         decoder_embedding_dim: int = 256,
@@ -368,7 +368,10 @@ class HybridSignToTextModel(nn.Module):
         text_pad_idx: int = 0,
         text_sos_idx: int = 1,
         text_eos_idx: int = 2,
-        max_decode_length: int = 50
+        max_decode_length: int = 50,
+        use_encoder_projection: bool = True,
+        encoder_projection_dim: int = 512,
+        attention_entropy_weight: float = 0.01
     ):
         super().__init__()
         
@@ -379,6 +382,8 @@ class HybridSignToTextModel(nn.Module):
         self.text_sos_idx = text_sos_idx
         self.text_eos_idx = text_eos_idx
         self.max_decode_length = max_decode_length
+        self.use_encoder_projection = use_encoder_projection
+        self.attention_entropy_weight = attention_entropy_weight
         
         # =====================================================================
         # Shared Encoder
@@ -403,14 +408,32 @@ class HybridSignToTextModel(nn.Module):
             bidirectional=True
         )
         
-        # Encoder output size (bidirectional)
-        encoder_output_size = gru_hidden_size * 2  # 512
+        # Raw encoder output size (bidirectional)
+        raw_encoder_size = gru_hidden_size * 2  # 768 with 384 hidden
         
         # =====================================================================
-        # CTC Head
+        # Encoder Projection (strengthens encoder -> attention signal)
         # =====================================================================
         
-        self.ctc_projection = nn.Linear(encoder_output_size, gloss_vocab_size)
+        if use_encoder_projection:
+            self.encoder_projection = nn.Sequential(
+                nn.Linear(raw_encoder_size, encoder_projection_dim),
+                nn.Tanh(),
+                nn.Dropout(gru_dropout)
+            )
+            encoder_output_size = encoder_projection_dim
+        else:
+            self.encoder_projection = None
+            encoder_output_size = raw_encoder_size
+        
+        self.encoder_output_size = encoder_output_size
+        self.raw_encoder_size = raw_encoder_size
+        
+        # =====================================================================
+        # CTC Head (works on raw encoder output for better gradients)
+        # =====================================================================
+        
+        self.ctc_projection = nn.Linear(raw_encoder_size, gloss_vocab_size)
         self.ctc_loss_fn = nn.CTCLoss(
             blank=gloss_blank_idx,
             reduction='mean',
@@ -423,7 +446,7 @@ class HybridSignToTextModel(nn.Module):
         
         # Bridge: project BiGRU hidden to decoder hidden
         self.hidden_bridge = nn.Linear(
-            gru_hidden_size * 2,  # Concat forward + backward
+            raw_encoder_size,  # Use raw encoder size for hidden bridge
             decoder_hidden_size * decoder_num_layers
         )
         
@@ -448,7 +471,7 @@ class HybridSignToTextModel(nn.Module):
         self,
         features: torch.Tensor,
         feature_lengths: torch.Tensor
-    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
+    ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor]:
         """
         Encode video features.
         
@@ -457,18 +480,24 @@ class HybridSignToTextModel(nn.Module):
             feature_lengths: (batch,)
             
         Returns:
-            Tuple of (encoder_outputs, decoder_hidden, ctc_log_probs, output_lengths)
+            Tuple of (encoder_outputs, decoder_hidden, ctc_log_probs, output_lengths, raw_encoder_outputs)
         """
         # Conv1D encoding with downsampling
         conv_output, conv_lengths = self.conv_encoder(features, feature_lengths)
         
         # BiGRU encoding
-        encoder_outputs, gru_hidden = self.gru_encoder(conv_output, conv_lengths)
+        raw_encoder_outputs, gru_hidden = self.gru_encoder(conv_output, conv_lengths)
         
-        # CTC head
-        ctc_logits = self.ctc_projection(encoder_outputs)
+        # CTC head (on raw encoder output for better gradients)
+        ctc_logits = self.ctc_projection(raw_encoder_outputs)
         ctc_log_probs = F.log_softmax(ctc_logits, dim=-1)
         ctc_log_probs = ctc_log_probs.transpose(0, 1)  # (seq_len, batch, vocab)
+        
+        # Apply encoder projection for attention (strengthens visual signal)
+        if self.encoder_projection is not None:
+            encoder_outputs = self.encoder_projection(raw_encoder_outputs)
+        else:
+            encoder_outputs = raw_encoder_outputs
         
         # Prepare decoder initial hidden
         # Combine forward and backward last hidden states
@@ -482,7 +511,7 @@ class HybridSignToTextModel(nn.Module):
             self.decoder_num_layers, -1, self.decoder_hidden_size
         ).contiguous()
         
-        return encoder_outputs, decoder_hidden, ctc_log_probs, conv_lengths
+        return encoder_outputs, decoder_hidden, ctc_log_probs, conv_lengths, raw_encoder_outputs
     
     def forward(
         self,
@@ -510,7 +539,7 @@ class HybridSignToTextModel(nn.Module):
         device = features.device
         
         # Encode
-        encoder_outputs, hidden, ctc_log_probs, enc_lengths = self.encode(
+        encoder_outputs, hidden, ctc_log_probs, enc_lengths, _ = self.encode(
             features, feature_lengths
         )
         
@@ -518,19 +547,21 @@ class HybridSignToTextModel(nn.Module):
         max_enc_len = encoder_outputs.size(1)
         encoder_mask = torch.arange(max_enc_len, device=device).unsqueeze(0) < enc_lengths.unsqueeze(1)
         
-        # Initialize decoder outputs
+        # Initialize decoder outputs and attention weights
         outputs = torch.zeros(batch_size, tgt_len - 1, self.text_vocab_size, device=device)
+        all_attention_weights = []  # Collect for entropy regularization
         
         # First input is SOS
         input_token = text_ids[:, 0]
         
         # Decode step by step
         for t in range(1, tgt_len):
-            logits, hidden, _ = self.decoder.forward_step(
+            logits, hidden, attn_weights = self.decoder.forward_step(
                 input_token, hidden, encoder_outputs, encoder_mask
             )
             
             outputs[:, t - 1] = logits
+            all_attention_weights.append(attn_weights)
             
             # Teacher forcing decision
             use_teacher = random.random() < teacher_forcing_ratio
@@ -539,7 +570,41 @@ class HybridSignToTextModel(nn.Module):
             else:
                 input_token = logits.argmax(dim=-1)
         
-        return outputs, ctc_log_probs, enc_lengths
+        # Stack attention weights: (batch, tgt_len-1, src_len)
+        attention_weights = torch.stack(all_attention_weights, dim=1)
+        
+        return outputs, ctc_log_probs, enc_lengths, attention_weights
+    
+    def compute_attention_entropy_loss(
+        self,
+        attention_weights: torch.Tensor,
+        encoder_mask: torch.Tensor
+    ) -> torch.Tensor:
+        """
+        Compute attention entropy regularization loss.
+        Encourages the model to attend to specific frames rather than uniform.
+        
+        Args:
+            attention_weights: (batch, tgt_len, src_len)
+            encoder_mask: (batch, src_len)
+            
+        Returns:
+            Negative entropy loss (lower = more peaked attention)
+        """
+        # Add small epsilon for numerical stability
+        eps = 1e-8
+        log_attn = torch.log(attention_weights + eps)
+        
+        # Compute entropy: -sum(p * log(p))
+        entropy = -(attention_weights * log_attn).sum(dim=-1)  # (batch, tgt_len)
+        
+        # Average over valid positions
+        mean_entropy = entropy.mean()
+        
+        # Return negative entropy (we want to encourage peaked attention)
+        # Higher entropy = more uniform = bad for grounding
+        # Return positive loss that penalizes high entropy
+        return mean_entropy
     
     def compute_loss(
         self,
@@ -549,10 +614,11 @@ class HybridSignToTextModel(nn.Module):
         gloss_lengths: torch.Tensor,
         text_ids: torch.Tensor,
         ctc_weight: float = 0.5,
-        teacher_forcing_ratio: float = 1.0
+        teacher_forcing_ratio: float = 1.0,
+        use_attention_entropy: bool = True
     ) -> Dict[str, torch.Tensor]:
         """
-        Compute hybrid CTC + Attention loss.
+        Compute hybrid CTC + Attention loss with optional attention entropy regularization.
         
         Args:
             features: Input features (batch, seq_len, input_size)
@@ -560,14 +626,15 @@ class HybridSignToTextModel(nn.Module):
             gloss_ids: Target gloss IDs (batch, gloss_len)
             gloss_lengths: Gloss lengths (batch,)
             text_ids: Target text IDs with SOS (batch, text_len)
-            ctc_weight: Weight α for hybrid loss
+            ctc_weight: Weight alpha for hybrid loss
             teacher_forcing_ratio: Teacher forcing probability
+            use_attention_entropy: Whether to add attention entropy regularization
             
         Returns:
             Dictionary with loss components
         """
         # Forward pass
-        decoder_outputs, ctc_log_probs, enc_lengths = self.forward(
+        decoder_outputs, ctc_log_probs, enc_lengths, attention_weights = self.forward(
             features, feature_lengths, text_ids, teacher_forcing_ratio
         )
         
@@ -582,21 +649,32 @@ class HybridSignToTextModel(nn.Module):
         )
         
         # Cross-Entropy Loss (skip SOS in targets)
-        # decoder_outputs: (batch, tgt_len-1, vocab)
-        # text_ids: (batch, tgt_len) with SOS at 0
-        # targets: text_ids[:, 1:] (skip SOS, these are the targets)
         ce_outputs = decoder_outputs.reshape(-1, self.text_vocab_size)
         ce_targets = text_ids[:, 1:].reshape(-1)
         ce_loss = self.ce_loss_fn(ce_outputs, ce_targets)
         
-        # Hybrid loss: α * CTC + (1-α) * CE
+        # Attention Entropy Regularization
+        if use_attention_entropy and self.attention_entropy_weight > 0:
+            device = features.device
+            max_enc_len = attention_weights.size(-1)
+            encoder_mask = torch.arange(max_enc_len, device=device).unsqueeze(0) < enc_lengths.unsqueeze(1)
+            attn_entropy_loss = self.compute_attention_entropy_loss(attention_weights, encoder_mask)
+        else:
+            attn_entropy_loss = torch.tensor(0.0, device=features.device)
+        
+        # Hybrid loss: alpha * CTC + (1-alpha) * CE + entropy_weight * entropy
         attention_weight = 1.0 - ctc_weight
-        total_loss = ctc_weight * ctc_loss + attention_weight * ce_loss
+        total_loss = (
+            ctc_weight * ctc_loss + 
+            attention_weight * ce_loss + 
+            self.attention_entropy_weight * attn_entropy_loss
+        )
         
         return {
             'loss': total_loss,
             'ctc_loss': ctc_loss,
-            'ce_loss': ce_loss
+            'ce_loss': ce_loss,
+            'attn_entropy_loss': attn_entropy_loss
         }
     
     @torch.no_grad()
@@ -625,7 +703,7 @@ class HybridSignToTextModel(nn.Module):
         device = features.device
         
         # Encode
-        encoder_outputs, hidden, _, enc_lengths = self.encode(features, feature_lengths)
+        encoder_outputs, hidden, _, enc_lengths, _ = self.encode(features, feature_lengths)
         
         # Create encoder mask
         max_enc_len = encoder_outputs.size(1)

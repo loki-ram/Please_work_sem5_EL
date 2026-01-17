@@ -210,20 +210,35 @@ def validate(
     config: Config,
     epoch: int,
     gloss_vocab: Vocabulary,
-    text_vocab: Vocabulary
+    text_vocab: Vocabulary,
+    logger: logging.Logger = None,
+    num_qualitative_samples: int = 5
 ) -> Dict[str, float]:
-    """Validate model."""
+    """
+    Validate model with diagnostics:
+    - Standard loss/accuracy metrics
+    - Shuffle test for visual grounding verification
+    - Qualitative predictions logging
+    """
     model.eval()
     
     total_loss = 0.0
     total_ctc_loss = 0.0
     total_ce_loss = 0.0
+    total_attn_entropy = 0.0
     total_correct = 0
     total_samples = 0
     
+    # For qualitative samples
+    qualitative_samples = []
+    
+    # For shuffle test
+    shuffle_correct = 0
+    shuffle_total = 0
+    
     ctc_weight = config.training.get_ctc_weight(epoch)
     
-    for batch in tqdm(dataloader, desc='Validation'):
+    for batch_idx, batch in enumerate(tqdm(dataloader, desc='Validation')):
         features = batch['features'].to(config.device)
         feature_lengths = batch['feature_lengths'].to(config.device)
         gloss_ids = batch['gloss_ids'].to(config.device)
@@ -242,11 +257,13 @@ def validate(
         total_loss += losses['loss'].item()
         total_ctc_loss += losses['ctc_loss'].item()
         total_ce_loss += losses['ce_loss'].item()
+        if 'attn_entropy_loss' in losses:
+            total_attn_entropy += losses['attn_entropy_loss'].item()
         
         # Greedy decode for accuracy
         decoded = model.decode_greedy(features, feature_lengths)
         
-        # Calculate sequence-level accuracy
+        # Calculate sequence-level accuracy and collect samples
         for i in range(decoded.size(0)):
             pred_text = text_vocab.decode(decoded[i].tolist())
             target_text = batch['text_texts'][i].lower()
@@ -254,14 +271,77 @@ def validate(
             if pred_text.strip() == target_text.strip():
                 total_correct += 1
             total_samples += 1
+            
+            # Collect qualitative samples (first N from first batch)
+            if batch_idx == 0 and len(qualitative_samples) < num_qualitative_samples:
+                qualitative_samples.append({
+                    'reference': target_text,
+                    'prediction': pred_text,
+                    'match': pred_text.strip() == target_text.strip()
+                })
+        
+        # =================================================================
+        # SHUFFLE TEST: Verify visual grounding
+        # Shuffle encoder outputs across batch dimension to break 
+        # visual-semantic correspondence. Predictions should degrade.
+        # =================================================================
+        if batch_idx == 0 and features.size(0) > 1:  # Only on first batch with multiple samples
+            # Shuffle indices
+            batch_size = features.size(0)
+            shuffle_idx = torch.randperm(batch_size, device=features.device)
+            
+            # Create shuffled features (different video for each sample)
+            shuffled_features = features[shuffle_idx]
+            shuffled_lengths = feature_lengths[shuffle_idx]
+            
+            # Decode with shuffled encoder outputs
+            shuffled_decoded = model.decode_greedy(shuffled_features, shuffled_lengths)
+            
+            # Check if predictions still match (they shouldn't if model uses visual info)
+            for i in range(batch_size):
+                shuffled_pred = text_vocab.decode(shuffled_decoded[i].tolist())
+                target_text = batch['text_texts'][i].lower()
+                
+                if shuffled_pred.strip() == target_text.strip():
+                    shuffle_correct += 1
+                shuffle_total += 1
     
     num_batches = len(dataloader)
+    
+    # Calculate shuffle test degradation
+    original_acc = total_correct / total_samples if total_samples > 0 else 0.0
+    shuffle_acc = shuffle_correct / shuffle_total if shuffle_total > 0 else 0.0
+    grounding_score = original_acc - shuffle_acc  # Should be positive if visually grounded
+    
+    # Log qualitative predictions
+    if logger:
+        logger.info("\n" + "-" * 50)
+        logger.info("QUALITATIVE PREDICTIONS (Greedy Decoding):")
+        logger.info("-" * 50)
+        for idx, sample in enumerate(qualitative_samples):
+            status = "CORRECT" if sample['match'] else "WRONG"
+            logger.info(f"[{idx+1}] {status}")
+            logger.info(f"    REF:  {sample['reference']}")
+            logger.info(f"    PRED: {sample['prediction']}")
+        
+        # Log shuffle test results
+        logger.info("\n" + "-" * 50)
+        logger.info("VISUAL GROUNDING DIAGNOSTIC (Shuffle Test):")
+        logger.info("-" * 50)
+        logger.info(f"  Original accuracy: {original_acc:.4f}")
+        logger.info(f"  Shuffled accuracy: {shuffle_acc:.4f}")
+        logger.info(f"  Grounding score:   {grounding_score:.4f} (should be >> 0)")
+        if grounding_score <= 0.05:
+            logger.info("  WARNING: Low grounding score suggests decoder ignores encoder!")
     
     return {
         'val_loss': total_loss / num_batches,
         'val_ctc_loss': total_ctc_loss / num_batches,
         'val_ce_loss': total_ce_loss / num_batches,
-        'val_accuracy': total_correct / total_samples if total_samples > 0 else 0.0,
+        'val_attn_entropy': total_attn_entropy / num_batches if num_batches > 0 else 0.0,
+        'val_accuracy': original_acc,
+        'shuffle_accuracy': shuffle_acc,
+        'grounding_score': grounding_score,
     }
 
 
@@ -335,7 +415,10 @@ def train(config: Config):
         text_pad_idx=text_vocab.pad_idx,
         text_sos_idx=text_vocab.sos_idx,
         text_eos_idx=text_vocab.eos_idx,
-        max_decode_length=config.model.decoder.max_decode_length
+        max_decode_length=config.model.decoder.max_decode_length,
+        use_encoder_projection=config.model.encoder.use_encoder_projection,
+        encoder_projection_dim=config.model.encoder.encoder_projection_dim,
+        attention_entropy_weight=config.training.attention_entropy_weight
     ).to(device)
     
     # Count parameters
@@ -398,9 +481,10 @@ def train(config: Config):
             model, train_loader, optimizer, scaler, config, epoch, logger
         )
         
-        # Validate
+        # Validate (includes shuffle test and qualitative predictions)
         val_metrics = validate(
-            model, val_loader, config, epoch, gloss_vocab, text_vocab
+            model, val_loader, config, epoch, gloss_vocab, text_vocab,
+            logger=logger, num_qualitative_samples=5
         )
         
         # Combine metrics
@@ -422,6 +506,7 @@ def train(config: Config):
         logger.info(f"  Train Loss: {train_metrics['train_loss']:.4f}")
         logger.info(f"  Val Loss: {val_metrics['val_loss']:.4f}")
         logger.info(f"  Val Accuracy: {val_metrics['val_accuracy']:.4f}")
+        logger.info(f"  Grounding Score: {val_metrics['grounding_score']:.4f}")
         logger.info(f"  Learning Rate: {current_lr:.6f}")
         
         # Check for best model
