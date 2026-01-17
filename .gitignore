@@ -22,7 +22,7 @@ Thumbs.db
 # Outputs (optional - uncomment if you don't want to track outputs)
 # outputs/
 # *.npy
-# *.pt
+*.pt
 # *.pth
 
 # Logs
@@ -30,3 +30,5 @@ Thumbs.db
 
 # Jupyter
 .ipynb_checkpoints/
+
+.model_output/

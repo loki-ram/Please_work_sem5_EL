@@ -21,7 +21,7 @@ import torch
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import get_config, Config
 from models.hybrid_model import HybridSignToTextModel
-from data.vocabulary import load_vocabularies
+from data.vocabulary import load_vocabularies, Vocabulary
 
 # Try to import mediapipe
 try:
@@ -196,14 +196,22 @@ class SignToTextInference:
         self,
         checkpoint_path: str,
         config: Config,
-        device: str = 'cuda'
+        device: str = 'cuda',
+        gloss_vocab_path: str = None,
+        text_vocab_path: str = None
     ):
         self.config = config
         self.device = torch.device(device if torch.cuda.is_available() else 'cpu')
         
         # Load vocabularies
         print("Loading vocabularies...")
-        self.gloss_vocab, self.text_vocab = load_vocabularies(config)
+        if gloss_vocab_path and text_vocab_path:
+            # Load from custom paths
+            self.gloss_vocab = Vocabulary.load(gloss_vocab_path)
+            self.text_vocab = Vocabulary.load(text_vocab_path)
+        else:
+            # Load from config paths
+            self.gloss_vocab, self.text_vocab = load_vocabularies(config)
         print(f"Text vocabulary: {len(self.text_vocab)} tokens")
         
         # Load model
@@ -438,6 +446,10 @@ def main():
                         help='Video source: "webcam" or path to video file')
     parser.add_argument('--device', type=str, default='cuda',
                         help='Device to use')
+    parser.add_argument('--gloss-vocab', type=str, default=None,
+                        help='Path to gloss vocabulary JSON file')
+    parser.add_argument('--text-vocab', type=str, default=None,
+                        help='Path to text vocabulary JSON file')
     
     args = parser.parse_args()
     
@@ -452,7 +464,9 @@ def main():
     inference = SignToTextInference(
         args.checkpoint,
         config,
-        device=args.device
+        device=args.device,
+        gloss_vocab_path=args.gloss_vocab,
+        text_vocab_path=args.text_vocab
     )
     
     try:
