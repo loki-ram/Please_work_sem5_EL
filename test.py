@@ -8,7 +8,9 @@ Reports: exact-match accuracy, BLEU, WER.
 import os
 import sys
 import json
+import csv
 import argparse
+import glob
 import torch
 from torch.utils.data import DataLoader, ConcatDataset
 from tqdm import tqdm
@@ -29,7 +31,7 @@ def load_model_from_checkpoint(
     gloss_vocab,
     text_vocab
 ) -> HybridSignToTextModel:
-    """Load model from checkpoint."""
+    """Load model from checkpoint. Accepts a file path or a directory (picks latest)."""
     model = HybridSignToTextModel(
         input_size=config.model.encoder.input_size,
         conv_channels=config.model.encoder.conv_channels,
@@ -52,8 +54,31 @@ def load_model_from_checkpoint(
         max_decode_length=config.model.decoder.max_decode_length
     )
     
-    checkpoint = torch.load(checkpoint_path, map_location='cpu')
-    model.load_state_dict(checkpoint['model_state_dict'])
+    # If directory provided, pick most recent checkpoint file
+    if os.path.isdir(checkpoint_path):
+        patterns = [os.path.join(checkpoint_path, '*' + ext) for ext in ('.pt', '.pth', '.ckpt', '.tar')]
+        files = []
+        for p in patterns:
+            files.extend(glob.glob(p))
+        if not files:
+            raise FileNotFoundError(f"No checkpoint files found in directory: {checkpoint_path}")
+        files.sort(key=lambda x: os.path.getmtime(x), reverse=True)
+        checkpoint_file = files[0]
+        print(f"Using checkpoint file: {checkpoint_file}")
+    else:
+        checkpoint_file = checkpoint_path
+    
+    checkpoint = torch.load(checkpoint_file, map_location='cpu')
+    
+    # Support different checkpoint formats
+    if isinstance(checkpoint, dict) and 'model_state_dict' in checkpoint:
+        state_dict = checkpoint['model_state_dict']
+    elif isinstance(checkpoint, dict) and 'state_dict' in checkpoint:
+        state_dict = checkpoint['state_dict']
+    else:
+        state_dict = checkpoint
+    
+    model.load_state_dict(state_dict)
     
     return model
 
@@ -112,6 +137,8 @@ def main():
                         help='Path to model checkpoint')
     parser.add_argument('--output', type=str, default=None,
                         help='Output file for predictions (JSON)')
+    parser.add_argument('--csv-output', type=str, default=None,
+                        help='Output file for predictions (CSV)')
     parser.add_argument('--device', type=str, default='cuda',
                         help='Device to use')
     parser.add_argument('--batch-size', type=int, default=None,
@@ -234,6 +261,17 @@ def main():
             json.dump(output_data, f, indent=2, ensure_ascii=False)
         
         print(f"\nPredictions saved to: {args.output}")
+    
+    # Save predictions to CSV if requested
+    if args.csv_output:
+        with open(args.csv_output, 'w', newline='', encoding='utf-8') as f:
+            writer = csv.writer(f)
+            writer.writerow(['index', 'reference', 'prediction', 'correct'])
+            for i, (ref, pred) in enumerate(zip(results['references'], results['predictions'])):
+                is_correct = pred.strip().lower() == ref.strip().lower()
+                writer.writerow([i + 1, ref, pred, is_correct])
+        
+        print(f"Predictions saved to CSV: {args.csv_output}")
     
     print("\n[OK] Evaluation completed!")
 
