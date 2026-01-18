@@ -1,688 +1,688 @@
 index,split,reference,prediction,correct
-1,train,i am not really sure,i do not it,False
-2,train,i was stopped by some one,he is on the way,False
-3,train,pour some more water into the glass,he some more water into the glass,False
-4,train,i do not like it,what do you think,False
-5,train,i am fine. thank you sir,i am not,False
-6,train,do you need something,he you hiding something,False
-7,train,i got hurt,i am so sorry to hear that,False
-8,train,he is going into the room,he some more water into the glass,False
-9,train,do not hurt me,do not make me,False
-10,train,i got hurt,i am not,False
-11,train,"you need a medicine, take this one",he some more water into the glass,False
-12,train,when will the train leave,he is on light turn off,False
-13,train,speak softly,what you want,False
-14,train,how are things,what are you,False
-15,train,i am fine. thank you sir,i am feeling bored,False
-16,train,this place is beautiful,he you is beautiful,False
-17,train,who are you,what are you,False
-18,train,this place is beautiful,he you is beautiful,False
-19,train,do not be stubborn,do not take it,False
-20,train,do you need something,he you please talk slower,False
-21,train,i am really grateful,what do you,False
-22,train,what you want,what you you,False
-23,train,when will the train leave,he you please talk slower,False
-24,train,wear the shirt,he you hiding something,False
-25,train,what did you tell him,what are you angry,False
-26,train,bring water for me,do not make me,False
-27,train,it does not make any difference to me,i am so sorry,False
-28,train,congratulations,you are you,False
-29,train,do not make me angry,he is on train,False
-30,train,hi how are you,what are you,False
-31,train,we are all with you,he you hiding something,False
-32,train,what you want,you are you,False
-33,train,no need to worry dont worry,do not make me angry,False
-34,train,pour some more water into the glass,he some more water into the glass,False
-35,train,what do you think,what are you,False
-36,train,nice to meet you,what do you want,False
-37,train,why are you crying,what are you,False
-38,train,what do you want to become,what are you angry,False
-39,train,i do not mean it,i am not mean it,False
-40,train,"you do anything, i do not care",i am so sorry to hear,False
-41,train,speak softly,what are you,False
-42,train,i am really grateful,i am not,False
-43,train,i got hurt,i am so sorry,False
-44,train,turn on light turn off light,he some more water into the glass,False
-45,train,try to understand,he is on train,False
-46,train,i am really grateful,i am so sorry to hear,False
-47,train,serve the food,he you please talk slower,False
-48,train,how can i trust you,what are you,False
-49,train,try to understand,i do not make,False
-50,train,i was stopped by some one,"he is a medicine, take this",False
-51,train,you are good,you are you,False
-52,train,what have you planned for your career,he is going into the glass,False
-53,train,speak softly,what you want,False
-54,train,could you please talk slower,he you please talk slower,False
-55,train,i am suffering from fever,i am not,False
-56,train,i am afraid of that,i am so sorry,False
-57,train,why are you angry,he you want train,False
-58,train,how can i help you,i am,False
-59,train,i promise,i am not,False
-60,train,try to understand,what do you want to become,False
-61,train,could you please talk slower,he you please talk slower,False
-62,train,could you please talk slower,he you please talk slower,False
-63,train,i am crying,what are you,False
-64,train,what happened,what are you,False
-65,train,i enjoyed a lot,he you so much,False
-66,train,i enjoyed a lot,i am feeling bored,False
-67,train,i promise,i am feeling bored,False
-68,train,now onwards he will never hurt you,he some more water into the glass,False
-69,train,how dare you,i can i help you,False
-70,train,comb your hair,he is on the,False
-71,train,my name is xxxxxxxx,he you is beautiful,False
-72,train,i am sitting in the class,i was a lot,False
-73,train,help me,i am,False
-74,train,do not make me angry,do not make me angry,True
-75,train,go and sleep,what you want,False
-76,train,hi how are you,what are you angry,False
-77,train,what do you want to become,what do you want to become,True
-78,train,i got hurt,i am so sorry,False
-79,train,you can do it,what are you,False
-80,train,i do not agree,i am not mean it,False
-81,train,how old are you,what do you think,False
-82,train,we are all with you,are you hiding something,False
-83,train,do me a favour,i you free today,False
-84,train,i am feeling bored,i am feeling bored,True
-85,train,it was nice chatting with you,he you free today,False
-86,train,where are you from,what you want,False
-87,train,why are you disappointed,what are you,False
-88,train,you are bad,you are you,False
-89,train,what do you want to become,he you on train,False
-90,train,i am feeling cold,i am not,False
-91,train,which collegeschool are you from,he you hiding something,False
-92,train,i am really grateful,what do you,False
-93,train,who are you,you are you,False
-94,train,what do you want to become,what do you want to become,True
-95,train,serve the food,he is on train,False
-96,train,do not be stubborn,do not take it,False
-97,train,what do you want to become,what do you want to become,True
-98,train,it was nice chatting with you,i am sitting in,False
-99,train,why are you disappointed,what are you,False
-100,train,do not be stubborn,do not abuse him,False
-101,train,nice to meet you,what do you think,False
-102,train,he is on the way,he you please talk slower,False
-103,train,thank you so much,he is so much,False
-104,train,help me,you are you,False
-105,train,what did you tell him,what are you,False
-106,train,are you free today,he you is beautiful,False
-107,train,shall we go outside,he you please talk slower,False
-108,train,had your food,do not make me,False
-109,train,congratulations,you are you,False
-110,train,do me a favour,he you hiding something,False
-111,train,i am tired,i am feeling bored,False
-112,train,why are you angry,what you want,False
-113,train,i am not really sure,i am not mean it,False
-114,train,i do not mean it,i was nice chatting with you,False
-115,train,it was nice chatting with you,i you free today,False
-116,train,we are all with you,he you please talk slower,False
-117,train,i promise,i can i help you,False
-118,train,he would be coming today,he you please talk slower,False
-119,train,can i help you,i can i help you,False
-120,train,he came by train,he is on train light,False
-121,train,thank you so much,he you is beautiful,False
-122,train,had your food,what do you,False
-123,train,what did you tell him,what do you want to become,False
-124,train,i am feeling cold,i do not make it,False
-125,train,i somehow got to know about it,do not make me angry,False
-126,train,what is your phone number,what do you think,False
-127,train,i am (age),i am so,False
-128,train,congratulations,you are you,False
-129,train,i do not agree,i do not like it,False
-130,train,he is going into the room,he some more water into the glass,False
-131,train,i am suffering from fever,i am not,False
-132,train,i am crying,i am hungry,False
-133,train,i am feeling cold,i am not,False
-134,train,why are you crying,what are you,False
-135,train,i am fine. thank you sir,i am feeling bored,False
-136,train,where are you from,you are you,False
-137,train,do not worry,what do you want,False
-138,train,thank you so much,he is going into the,False
-139,train,why are you disappointed,what are you,False
-140,train,what are you doing,what are you,False
-141,train,you are good,you are you,False
-142,train,pour some more water into the glass,he some more water into the glass,False
-143,train,you are bad,you are you,False
-144,train,do you need something,he you want something,False
-145,train,it was nice chatting with you,i am feeling bored,False
-146,train,my name is xxxxxxxx,he you hiding something,False
-147,train,go and sleep,what are you,False
-148,train,i am so sorry to hear that,i am so sorry to hear that,True
-149,train,how can i help you,i am,False
-150,train,now onwards he will never hurt you,he some more water into the glass,False
-151,train,he is going into the room,he some more water into the glass,False
-152,train,what have you planned for your career,he some more water into the glass,False
-153,train,what do you do,what are you,False
-154,train,do not take it to the heart,do not make me,False
-155,train,do not worry,do not make me,False
-156,train,i am tired,i am feeling bored,False
-157,train,serve the food,he you hiding something,False
-158,train,i need water,i am crying,False
-159,train,this place is beautiful,he you is beautiful,False
-160,train,turn on light turn off light,he some more water into the glass,False
-161,train,why are you disappointed,what are you,False
-162,train,do not abuse him,he is on train,False
-163,train,i need water,do not take it,False
-164,train,help me,i am fine.,False
-165,train,which collegeschool are you from,what are you disappointed,False
-166,train,it does not make any difference to me,do not make me angry,False
-167,train,i really appreciate it,what do you think,False
-168,train,i do not like it,i do not make it,False
-169,train,how old are you,are you hiding,False
-170,train,thank you so much,he you is beautiful,False
-171,train,take care of yourself,do not make me,False
-172,train,i am fine. thank you sir,i am fine.,False
-173,train,how are things,what are you,False
-174,train,try to understand,do not be stubborn,False
-175,train,i am hungry,i am hungry,True
-176,train,how are things,what are you,False
-177,train,you can do it,what are you,False
-178,train,bring water for me,i am not,False
-179,train,can you repeat that please,he you please talk slower,False
-180,train,i do not like it,i am not,False
-181,train,i am so sorry to hear that,i am so sorry to hear that,True
-182,train,he she is my friend,he you please talk slower,False
-183,train,i am afraid of that,i am crying,False
-184,train,i am (age),i am crying,False
-185,train,tell me truth,what do you want,False
-186,train,he is going into the room,he some more water into the glass,False
-187,train,i do not like it,what do you want,False
-188,train,take care of yourself,i am so sorry to hear,False
-189,train,he came by train,he you please talk slower,False
-190,train,why are you disappointed,what you want,False
-191,train,how can i help you,i am,False
-192,train,do not worry,i am so sorry to hear,False
-193,train,how can i help you,i can i help you,False
-194,train,you are welcome,you are you,False
-195,train,go and sleep,he you hiding something,False
-196,train,i am suffering from fever,i am not,False
-197,train,what did you tell him,what do you want,False
-198,train,it was nice chatting with you,i am sitting in the,False
-199,train,i really appreciate it,what do you think,False
-200,train,bring water for me,do not take it,False
-201,train,are you hiding something,he you hiding something,False
-202,train,now onwards he will never hurt you,he some more water into the glass,False
-203,train,speak softly,what are you angry,False
-204,train,i somehow got to know about it,do not make me,False
-205,train,what do you do,what are you,False
-206,train,he would be coming today,he you please talk slower,False
-207,train,how are things,what are you,False
-208,train,it was nice chatting with you,i am sitting in,False
-209,train,why are you crying,what are you disappointed,False
-210,train,take care of yourself,do not take it,False
-211,train,i am feeling bored,i am feeling bored,True
-212,train,it does not make any difference to me,do not take it,False
-213,train,now onwards he will never hurt you,he some more water into the glass,False
-214,train,prepare the bed,he you please talk,False
-215,train,how dare you,i am,False
-216,train,let him take time,he is going into the,False
-217,train,now onwards he will never hurt you,he some more water into the glass,False
-218,train,my name is xxxxxxxx,he you is beautiful,False
-219,train,he is on the way,he is on train,False
-220,train,what do you think,what do you want,False
-221,train,had your food,what do you want,False
-222,train,prepare the bed,he you hiding something,False
-223,train,what happened,you are you,False
-224,train,what you want,you are you,False
-225,train,are you free today,he you hiding something,False
-226,train,can i help you,i can i help you,False
-227,train,you can do it,what are you,False
-228,train,do not hurt me,i am so sorry to hear,False
-229,train,hi how are you,what are you,False
-230,train,i am fine. thank you sir,i am not bored,False
-231,train,why are you crying,what do you think,False
-232,train,nice to meet you,i am not,False
-233,train,you are welcome,you you hiding something,False
-234,train,i am hungry,i am not,False
-235,train,i got hurt,i am so sorry,False
-236,train,we are all with you,he you hiding something,False
-237,train,which collegeschool are you from,he you please,False
-238,train,he came by train,he some more water into the glass,False
-239,train,i dont agree,i you want something,False
-240,train,i do not mean it,i am not mean it,False
-241,train,what are you doing,what are you,False
-242,train,this place is beautiful,he you please talk slower,False
-243,train,i am really grateful,i am fine.,False
-244,train,can you repeat that please,he you hiding something,False
-245,train,do not abuse him,do not make me,False
-246,train,shall we go outside,he you please talk slower,False
-247,train,i do not like it,what do you think,False
-248,train,tell me truth,you are you,False
-249,train,what you want,you are you,False
-250,train,where are you from,what you you,False
-251,train,what are you doing,what are you,False
-252,train,i am sitting in the class,i was a lot,False
-253,train,you are welcome,you are you,False
-254,train,i am not really sure,i am not,False
-255,train,i am in dilemma what to do,i am not really it,False
-256,train,why are you crying,what are you angry,False
-257,train,i am hungry,i am hungry,True
-258,train,i am fine. thank you sir,i am fine. thank you,False
-259,train,what happened,what are you,False
-260,train,i like you i love you,i am feeling bored,False
-261,train,are you hiding something,he you please talk slower,False
-262,train,"you do anything, i do not care",what do you want to become,False
-263,train,comb your hair,he is on the way,False
-264,train,i am not really sure,i am not mean it,False
-265,train,what you want,what are you,False
-266,train,comb your hair,he you please talk,False
-267,train,i am feeling bored,i am sitting in,False
-268,train,pour some more water into the glass,he some more water into the glass,False
-269,train,hi how are you,you are you,False
-270,train,pour some more water into the glass,he some more water into the glass,False
-271,train,are you hiding something,he you hiding something,False
-272,train,i am very happy,i am feeling bored,False
-273,train,that is so kind of you,do not take it,False
-274,train,how can i help you,i can i help you,False
-275,train,do not worry,i am so,False
-276,train,i was stopped by some one,i do not make it,False
-277,train,do not worry,i do not make it,False
-278,train,he would be coming today,he you please talk slower,False
-279,train,you are good,what are you,False
-280,train,i somehow got to know about it,what do you want,False
-281,train,are you hiding something,he you please talk,False
-282,train,do you need something,he you so much,False
-283,train,he is on the way,he is on light the way,False
-284,train,i promise,i am feeling bored,False
-285,train,nice to meet you,what are you,False
-286,train,"you need a medicine, take this one",he some more water into the glass,False
-287,train,do not abuse him,he is on train,False
-288,train,wear the shirt,he you free today,False
-289,train,had your food,what are you,False
-290,train,i promise,i am not,False
-291,train,bring water for me,do not make me,False
-292,train,you are welcome,you are you,False
-293,train,"you need a medicine, take this one",he some more water into the glass,False
-294,train,that is so kind of you,i am fine.,False
-295,train,i am feeling bored,i am not bored,False
-296,train,what happened,what are you,False
-297,train,i am feeling cold,i am so,False
-298,train,he came by train,he is on train,False
-299,train,i got hurt,i am so sorry to hear,False
-300,train,you are good,what are you,False
-301,train,do not take it to the heart,do not take it,False
-302,train,are you free today,what are you,False
-303,train,take care of yourself,do not take it,False
-304,train,you are good,you are you,False
-305,train,you are bad,you are you,False
-306,train,congratulations,you are you,False
-307,train,i am (age),i am hungry,False
-308,train,i do not mean it,i do not make it,False
-309,train,go and sleep,he you hiding something,False
-310,train,congratulations,you are you,False
-311,train,i do not agree,i am not mean,False
-312,train,try to understand,what do you think,False
-313,train,turn on light turn off light,he on light turn off light,False
-314,train,what happened,what are you,False
-315,train,what did you tell him,what are you,False
-316,train,i am crying,i am not,False
-317,train,i am very happy,i am feeling bored,False
-318,train,hi how are you,what you you,False
-319,train,go and sleep,you are you,False
-320,train,i am feeling cold,i am crying,False
-321,train,i am very happy,i am feeling bored,False
-322,train,i need water,i am so,False
-323,train,how dare you,i do not make,False
-324,train,it does not make any difference to me,do not make me angry,False
-325,train,which collegeschool are you from,what you want,False
-326,train,how can i help you,i am,False
-327,train,he would be coming today,he you please talk slower,False
-328,train,"you need a medicine, take this one",he is going into the glass,False
-329,train,wear the shirt,he you hiding something,False
-330,train,what do you think,what do you want,False
-331,train,turn on light turn off light,he on light turn off light,False
-332,train,why are you disappointed,you are you disappointed,False
-333,train,i can not help you there,i can i help you,False
-334,train,why are you angry,what are you angry,False
-335,train,what do you want to become,what do you want to become,True
-336,train,why are you angry,you are you,False
-337,train,i do not mean it,i am not mean it,False
-338,train,i am (age),i am hungry,False
-339,train,i got hurt,i am so sorry,False
-340,train,i like you i love you,i you free today,False
-341,train,i need water,i am so,False
-342,train,i am very happy,i am fine.,False
-343,train,bring water for me,do not make me,False
-344,train,i am tired,i am feeling bored,False
-345,train,i really appreciate it,i am not,False
-346,train,when will the train leave,he you please talk slower,False
-347,train,who are you,you are you,False
-348,train,go and sleep,you are you,False
-349,train,how old are you,what do you,False
-350,train,he would be coming today,he you please talk slower,False
-351,train,prepare the bed,he you please talk,False
-352,train,where are you from,you are you,False
-353,train,he is on the way,he is on train,False
-354,train,i am so sorry to hear that,i am so sorry to hear,False
-355,train,i am afraid of that,i am so sorry to hear,False
-356,train,i can not help you there,i am not bored,False
-357,train,can you repeat that please,he you please talk slower,False
-358,train,do not make me angry,what do you want to become,False
-359,train,why are you angry,what are you angry,False
-360,train,you can do it,what are you,False
-361,train,thank you so much,he is going into the,False
-362,train,how are things,what are you,False
-363,train,bring water for me,do not make me,False
-364,train,"you do anything, i do not care",he you is beautiful,False
-365,train,let him take time,he you please talk slower,False
-366,train,i am in dilemma what to do,i do not make it,False
-367,train,what do you think,what are you,False
-368,train,i am tired,i am not,False
-369,train,nice to meet you,i am not,False
-370,train,i am sitting in the class,i am sitting in the class,True
-371,train,it does not make any difference to me,do not take it,False
-372,train,i can not help you there,i am feeling,False
-373,train,what do you do,what are you angry,False
-374,train,what are you doing,what are you,False
-375,train,are you free today,he you free today,False
-376,train,i can not help you there,i am not,False
-377,train,i need water,i am so sorry to hear,False
-378,train,you are bad,what do you,False
-379,train,try to understand,what do you think,False
-380,train,who are you,what are you,False
-381,train,i am in dilemma what to do,i am not,False
-382,train,who are you,what are you,False
-383,train,i am (age),i am,False
-384,train,help me,you are you,False
-385,train,hi how are you,what are you,False
-386,train,you are bad,what are you,False
-387,train,i really appreciate it,i do not make it,False
-388,train,can i help you,i am,False
-389,train,"you do anything, i do not care",i am not,False
-390,train,you are bad,you are you,False
-391,train,it does not make any difference to me,i am not make any difference to,False
-392,train,do not hurt me,i am not,False
-393,train,i am in dilemma what to do,i am so sorry to hear,False
-394,train,are you free today,i you free today,False
-395,train,"you need a medicine, take this one",he some more water into the glass,False
-396,train,i am sitting in the class,i am sitting in the,False
-397,train,i am fine. thank you sir,i am feeling bored,False
-398,train,do me a favour,what you want,False
-399,train,he is going into the room,he you is beautiful,False
-400,train,now onwards he will never hurt you,he some more water into the glass,False
-401,train,i am hungry,i am hungry,True
-402,train,do not abuse him,he is on train,False
-403,train,can i help you,i am feeling bored,False
-404,train,why are you angry,what are you angry,False
-405,train,where are you from,he you please talk,False
-406,train,serve the food,he you is beautiful,False
-407,train,i am afraid of that,i am crying,False
-408,train,i am sitting in the class,he is is beautiful,False
-409,train,i do not mean it,i am not,False
-410,train,that is so kind of you,do not take it,False
-411,train,i somehow got to know about it,do not make me angry,False
-412,train,tell me truth,you are you,False
-413,train,take care of yourself,i am so sorry to hear,False
-414,train,i enjoyed a lot,i you a lot,False
-415,train,what happened,what are you,False
-416,train,why are you crying,what do you want,False
-417,train,when will the train leave,he some more water into the glass,False
-418,train,why are you disappointed,what you want,False
-419,train,i am feeling bored,i am not mean,False
-420,train,i do not like it,what do you think,False
-421,train,speak softly,what are you,False
-422,train,you are bad,you are you,False
-423,train,hi how are you,you are you,False
-424,train,do not make me angry,do not make me angry,True
-425,train,congratulations,you are you,False
-426,train,i am feeling bored,i am feeling bored,True
-427,train,do not make me angry,what do you want to become,False
-428,train,what do you think,what are you,False
-429,train,my name is xxxxxxxx,he you please talk slower,False
-430,train,i am not really sure,i am feeling,False
-431,train,pour some more water into the glass,he some more water into the glass,False
-432,train,he is on the way,what do you want to become,False
-433,train,let him take time,he you please talk slower,False
-434,train,what is your phone number,what are you,False
-435,train,are you free today,he you please talk,False
-436,train,what is your phone number,what do you want to become,False
-437,train,i enjoyed a lot,i am not mean it,False
-438,train,how can i trust you,i am not,False
-439,train,who are you,you are you,False
-440,train,i am hungry,i am,False
-441,train,do not be stubborn,do not take it,False
-442,train,do not make me angry,he is on train,False
-443,train,do not take it to the heart,do not take it,False
-444,train,are you hiding something,are you hiding something,True
-445,train,i am suffering from fever,i am not,False
-446,train,how can i trust you,what do you,False
-447,train,i am crying,i am hungry,False
-448,train,i enjoyed a lot,he you so much,False
-449,train,we are all with you,you are you,False
-450,train,which collegeschool are you from,what do you want to become,False
-451,train,what are you doing,you are you,False
-452,train,that is so kind of you,i am so sorry to hear,False
-453,train,i am afraid of that,do not make me,False
-454,train,how dare you,you are you,False
-455,train,i was stopped by some one,do not be stubborn,False
-456,train,i am so sorry to hear that,i am so sorry to hear that,True
-457,train,do me a favour,he you free today,False
-458,train,i am very happy,i am,False
-459,train,it was nice chatting with you,i am feeling bored,False
-460,train,let him take time,he is going into the glass,False
-461,train,he she is my friend,he you please talk slower,False
-462,train,i am in dilemma what to do,i am not mean it,False
-463,train,serve the food,he you please talk slower,False
-464,train,that is so kind of you,do not take it,False
-465,train,do not be stubborn,do not take stubborn,False
-466,train,what you want,what are you,False
-467,train,do not take it to the heart,do not take it,False
-468,train,do not worry,do not make me angry,False
-469,train,he she is my friend,he you please talk slower,False
-470,train,let him take time,he you is beautiful,False
-471,train,i am very happy,i am feeling bored,False
-472,train,wear the shirt,are you hiding something,False
-473,train,we are all with you,he you hiding something,False
-474,train,i am so sorry to hear that,i am so sorry to hear,False
-475,train,i am afraid of that,i am crying,False
-476,train,he is on the way,he is on train,False
-477,train,it does not make any difference to me,i am so sorry to hear,False
-478,train,i can not help you there,i am feeling bored,False
-479,train,can i help you,i am not,False
-480,train,what do you do,what are you,False
-481,train,what do you do,what are you,False
-482,train,are you free today,he you please talk,False
-483,train,i enjoyed a lot,i am feeling bored,False
-484,train,i am crying,i am crying,True
-485,train,i am crying,i am so,False
-486,train,congratulations,i am,False
-487,train,i do not agree,i am not,False
-488,train,can i help you,i am feeling bored,False
-489,train,where are you from,you are you from,False
-490,train,i somehow got to know about it,do not make me angry,False
-491,train,i can not help you there,i am not mean it,False
-492,train,how are things,what do you want,False
-493,train,could you please talk slower,he you please talk slower,False
-494,train,you are bad,you are you,False
-495,train,that is so kind of you,i am so sorry to hear,False
-496,train,nice to meet you,what are you,False
-497,train,prepare the bed,you you hiding something,False
-498,train,do me a favour,i am feeling bored,False
-499,train,could you please talk slower,he you please talk slower,False
-500,train,shall we go outside,he you please talk slower,False
-501,train,how old are you,what are you,False
-502,train,go and sleep,you are you,False
-503,train,who are you,you are you,False
-504,train,thank you so much,he you please talk slower,False
-505,train,do not take it to the heart,do not take it,False
-506,train,how dare you,what are you,False
-507,train,i really appreciate it,i do not make it,False
-508,train,"you need a medicine, take this one",he you please talk slower,False
-509,train,"you do anything, i do not care",i am so sorry to hear,False
-510,train,i am not really sure,i am not,False
-511,train,he came by train,he is on train,False
-512,train,help me,i am,False
-513,train,tell me truth,you are you,False
-514,train,this place is beautiful,he you please talk slower,False
-515,train,i can not help you there,i can i help you,False
-516,train,prepare the bed,you are you,False
-517,train,i am hungry,i am so sorry,False
-518,train,i promise,i am,False
-519,train,wear the shirt,he you please talk slower,False
-520,train,i am tired,i am feeling bored,False
-521,train,i am so sorry to hear that,i am so sorry to hear that,True
-522,train,i am crying,i am so,False
-523,train,take care of yourself,i am so sorry to hear,False
-524,train,i somehow got to know about it,what are you,False
-525,train,he came by train,he is on train,False
-526,train,do not make me angry,what do you want to become,False
-527,train,you can do it,what are you,False
-528,train,you can do it,what do you think,False
-529,train,do you need something,he you hiding something,False
-530,train,i do not like it,i am feeling bored,False
-531,train,i am feeling bored,i am feeling bored,True
-532,train,which collegeschool are you from,he you hiding something,False
-533,train,can i help you,i am,False
-534,train,what are you doing,what are you,False
-535,train,can i help you,i am,False
-536,train,how can i help you,i can i help you,False
-537,train,i was stopped by some one,he is so much,False
-538,train,had your food,what do you think,False
-539,train,nice to meet you,what are you,False
-540,train,could you please talk slower,he you please talk slower,False
-541,train,let him take time,he is on train the,False
-542,train,when will the train leave,he you please talk slower,False
-543,train,do not hurt me,i am so sorry,False
-544,train,what do you think,i am not,False
-545,train,do not take it to the heart,do not take it,False
-546,train,had your food,what do you think,False
-547,train,i really appreciate it,what do you think,False
-548,train,try to understand,i am so sorry to hear,False
-549,train,i do not agree,do not make me,False
-550,val,speak softly,what do you want,False
-551,val,do not worry,what do you angry,False
-552,val,how dare you,i you free,False
-553,val,wear the shirt,let you free today,False
-554,val,when will the train leave,i you free today,False
-555,val,serve the food,what are you,False
-556,val,do not hurt me,i am so sorry to hear,False
-557,val,i am hungry,i am not,False
-558,val,i am suffering from fever,i am not of it,False
-559,val,what is your phone number,i am crying,False
-560,val,he she is my friend,he you please talk,False
-561,val,serve the food,he you please talk slower,False
-562,val,which collegeschool are you from,he is on train,False
-563,val,what have you planned for your career,what are you,False
-564,val,i am not really sure,i am so sorry to hear,False
-565,val,i am (age),what do you think,False
-566,val,i promise,i you free today,False
-567,val,i enjoyed a lot,i was a lot,False
-568,val,can you repeat that please,he is on train,False
-569,val,can you repeat that please,i am not,False
-570,val,i am feeling cold,i am,False
-571,val,he she is my friend,you are you,False
-572,val,he she is my friend,he you please talk slower,False
-573,val,he would be coming today,he you please talk slower,False
-574,val,he is going into the room,he you please talk,False
-575,val,my name is xxxxxxxx,he you is beautiful,False
-576,val,comb your hair,he is on the way,False
-577,val,could you please talk slower,he you please talk slower,False
-578,val,speak softly,he is on train,False
-579,val,turn on light turn off light,he is on light,False
-580,val,how old are you,what are you,False
-581,val,i am suffering from fever,i am not,False
-582,val,what did you tell him,what you want,False
-583,val,that is so kind of you,i am so sorry to hear that,False
-584,val,i like you i love you,he is so much,False
-585,val,thank you so much,are you hiding something,False
-586,val,i am in dilemma what to do,he you please talk slower,False
-587,val,this place is beautiful,he you free today,False
-588,val,what is your phone number,you you hiding something,False
-589,val,i like you i love you,he you free today,False
-590,val,turn on light turn off light,he is on train,False
-591,val,are you hiding something,i was a lot,False
-592,val,what did you tell him,what do you want,False
-593,val,how dare you,he you hiding something,False
-594,val,you are welcome,you are you,False
-595,val,i am tired,i am not mean,False
-596,val,wear the shirt,he you please talk slower,False
-597,val,you are welcome,he you hiding something,False
-598,val,i am feeling cold,i am hungry,False
-599,val,i like you i love you,let you free today,False
-600,val,i am afraid of that,i am not,False
-601,val,i am tired,you are you,False
-602,val,shall we go outside,he is going into the glass,False
-603,val,tell me truth,he you so much,False
-604,val,what are you doing,i do not,False
-605,val,let him take time,he is on the train,False
-606,val,how can i trust you,what are you,False
-607,val,help me,i am feeling,False
-608,val,i like you i love you,he you please talk slower,False
-609,val,can you repeat that please,i do not mean it,False
-610,val,i enjoyed a lot,he you hiding something,False
-611,val,he came by train,he you please talk,False
-612,val,what is your phone number,what are you disappointed,False
-613,val,i am really grateful,i am so sorry,False
-614,val,what do you want to become,he is on train,False
-615,val,do you need something,he you hiding something,False
-616,val,i like you i love you,are you hiding something,False
-617,val,what you want,what you want,True
-618,val,go and sleep,he some more water into the glass,False
-619,test,i am sitting in the class,i am sitting in,False
-620,test,do not hurt me,do not take it,False
-621,test,i am sitting in the class,he you hiding something,False
-622,test,prepare the bed,he you please talk,False
-623,test,what is your phone number,what do you,False
-624,test,why are you angry,what do you want to become,False
-625,test,i do not agree,he you want train,False
-626,test,i am in dilemma what to do,i am not,False
-627,test,do not abuse him,he is on train,False
-628,test,what do you do,what are you,False
-629,test,tell me truth,what you want,False
-630,test,my name is xxxxxxxx,i you free today,False
-631,test,do you need something,he you hiding something,False
-632,test,why are you crying,what you want,False
-633,test,i somehow got to know about it,what are you,False
-634,test,i was stopped by some one,do not make me,False
-635,test,i am suffering from fever,i do not make it,False
-636,test,"you do anything, i do not care",what do you want,False
-637,test,help me,how are you,False
-638,test,do not abuse him,he is on train,False
-639,test,what do you think,what are you,False
-640,test,you can do it,what do you think,False
-641,test,i am really grateful,i am not,False
-642,test,are you hiding something,are you hiding something,True
-643,test,my name is xxxxxxxx,i was stopped by,False
-644,test,i like you i love you,i am not,False
-645,test,serve the food,he you please talk,False
-646,test,i do not mean it,i do not like it,False
-647,test,i was stopped by some one,what do you think,False
-648,test,we are all with you,i am feeling bored,False
-649,test,can you repeat that please,what are you,False
-650,test,comb your hair,he is so much the,False
-651,test,shall we go outside,i am not mean it,False
-652,test,i need water,what do you think,False
-653,test,you are welcome,you are you,False
-654,test,he would be coming today,i was stopped chatting with you,False
-655,test,had your food,what do you think,False
-656,test,i need water,i am not,False
-657,test,shall we go outside,he you free today,False
-658,test,do not hurt me,i am so sorry to hear that,False
-659,test,when will the train leave,he is on train,False
-660,test,bring water for me,what do you think,False
-661,test,how old are you,do not take it,False
-662,test,prepare the bed,he you please talk,False
-663,test,how can i trust you,what are you,False
-664,test,pour some more water into the glass,what do you think,False
-665,test,shall we go outside,do not take it,False
-666,test,i am so sorry to hear that,what are you,False
-667,test,do not take it to the heart,do not take it,False
-668,test,you are good,what are you,False
-669,test,serve the food,he you is beautiful,False
-670,test,speak softly,i do not like it,False
-671,test,do not be stubborn,i am so sorry,False
-672,test,how can i trust you,he you hiding something,False
-673,test,comb your hair,he is on the way,False
-674,test,do me a favour,he you free today,False
-675,test,do me a favour,i am feeling bored,False
-676,test,take care of yourself,do not make me,False
-677,test,how old are you,i am so,False
-678,test,comb your hair,what do you think,False
-679,test,i really appreciate it,what do you think,False
-680,test,i do not agree,what are you angry,False
-681,test,turn on light turn off light,he on light turn off light,False
-682,test,how can i trust you,i am so sorry,False
-683,test,this place is beautiful,he is on the way,False
-684,test,"you need a medicine, take this one",do not be stubborn,False
-685,test,you are good,what are you,False
-686,test,he is going into the room,he is so much,False
-687,test,he she is my friend,he you please talk,False
+1,train,i am not really sure,i do not it,FALSE
+2,train,i was stopped by some one,he is on the way,FALSE
+3,train,pour some more water into the glass,he some more water into the glass,FALSE
+4,train,i do not like it,what do you think,FALSE
+5,train,i am fine. thank you sir,i am not,FALSE
+6,train,do you need something,he you hiding something,FALSE
+7,train,i got hurt,i am so sorry to hear that,FALSE
+8,train,he is going into the room,he some more water into the glass,FALSE
+9,train,do not hurt me,do not make me,FALSE
+10,train,i got hurt,i am not,FALSE
+11,train,"you need a medicine, take this one",he some more water into the glass,FALSE
+12,train,when will the train leave,he is on light turn off,FALSE
+13,train,speak softly,what you want,FALSE
+14,train,how are things,what are you,FALSE
+15,train,i am fine. thank you sir,i am feeling bored,FALSE
+16,train,this place is beautiful,he you is beautiful,FALSE
+17,train,who are you,what are you,FALSE
+18,train,this place is beautiful,he you is beautiful,FALSE
+19,train,do not be stubborn,do not take it,FALSE
+20,train,do you need something,he you please talk slower,FALSE
+21,train,i am really grateful,what do you,FALSE
+22,train,what you want,what you you,FALSE
+23,train,when will the train leave,he you please talk slower,FALSE
+24,train,wear the shirt,he you hiding something,FALSE
+25,train,what did you tell him,what are you angry,FALSE
+26,train,bring water for me,do not make me,FALSE
+27,train,it does not make any difference to me,i am so sorry,FALSE
+28,train,congratulations,you are you,FALSE
+29,train,do not make me angry,he is on train,FALSE
+30,train,hi how are you,what are you,FALSE
+31,train,we are all with you,he you hiding something,FALSE
+32,train,what you want,you are you,FALSE
+33,train,no need to worry dont worry,do not make me angry,FALSE
+34,train,pour some more water into the glass,he some more water into the glass,FALSE
+35,train,what do you think,what are you,FALSE
+36,train,nice to meet you,what do you want,FALSE
+37,train,why are you crying,what are you,FALSE
+38,train,what do you want to become,what are you angry,FALSE
+39,train,i do not mean it,i am not mean it,FALSE
+40,train,"you do anything, i do not care",i am so sorry to hear,FALSE
+41,train,speak softly,what are you,FALSE
+42,train,i am really grateful,i am not,FALSE
+43,train,i got hurt,i am so sorry,FALSE
+44,train,turn on light turn off light,he some more water into the glass,FALSE
+45,train,try to understand,he is on train,FALSE
+46,train,i am really grateful,i am so sorry to hear,FALSE
+47,train,serve the food,he you please talk slower,FALSE
+48,train,how can i trust you,what are you,FALSE
+49,train,try to understand,i do not make,FALSE
+50,train,i was stopped by some one,"he is a medicine, take this",FALSE
+51,train,you are good,you are you,FALSE
+52,train,what have you planned for your career,he is going into the glass,FALSE
+53,train,speak softly,what you want,FALSE
+54,train,could you please talk slower,he you please talk slower,FALSE
+55,train,i am suffering from fever,i am not,FALSE
+56,train,i am afraid of that,i am so sorry,FALSE
+57,train,why are you angry,he you want train,FALSE
+58,train,how can i help you,i am,FALSE
+59,train,i promise,i am not,FALSE
+60,train,try to understand,what do you want to become,FALSE
+61,train,could you please talk slower,he you please talk slower,FALSE
+62,train,could you please talk slower,he you please talk slower,FALSE
+63,train,i am crying,what are you,FALSE
+64,train,what happened,what are you,FALSE
+65,train,i enjoyed a lot,he you so much,FALSE
+66,train,i enjoyed a lot,i am feeling bored,FALSE
+67,train,i promise,i am feeling bored,FALSE
+68,train,now onwards he will never hurt you,he some more water into the glass,FALSE
+69,train,how dare you,i can i help you,FALSE
+70,train,comb your hair,he is on the,FALSE
+71,train,my name is xxxxxxxx,he you is beautiful,FALSE
+72,train,i am sitting in the class,i was a lot,FALSE
+73,train,help me,i am,FALSE
+74,train,do not make me angry,do not make me angry,TRUE
+75,train,go and sleep,what you want,FALSE
+76,train,hi how are you,what are you angry,FALSE
+77,train,what do you want to become,what do you want to become,TRUE
+78,train,i got hurt,i am so sorry,FALSE
+79,train,you can do it,what are you,FALSE
+80,train,i do not agree,i am not mean it,FALSE
+81,train,how old are you,what do you think,FALSE
+82,train,we are all with you,are you hiding something,FALSE
+83,train,do me a favour,i you free today,FALSE
+84,train,i am feeling bored,i am feeling bored,TRUE
+85,train,it was nice chatting with you,he you free today,FALSE
+86,train,where are you from,what you want,FALSE
+87,train,why are you disappointed,what are you,FALSE
+88,train,you are bad,you are you,FALSE
+89,train,what do you want to become,he you on train,FALSE
+90,train,i am feeling cold,i am not,FALSE
+91,train,which collegeschool are you from,he you hiding something,FALSE
+92,train,i am really grateful,what do you,FALSE
+93,train,who are you,you are you,FALSE
+94,train,what do you want to become,what do you want to become,TRUE
+95,train,serve the food,he is on train,FALSE
+96,train,do not be stubborn,do not take it,FALSE
+97,train,what do you want to become,what do you want to become,TRUE
+98,train,it was nice chatting with you,i am sitting in,FALSE
+99,train,why are you disappointed,what are you,FALSE
+100,train,do not be stubborn,do not abuse him,FALSE
+101,train,nice to meet you,what do you think,FALSE
+102,train,he is on the way,he you please talk slower,FALSE
+103,train,thank you so much,he is so much,FALSE
+104,train,help me,you are you,FALSE
+105,train,what did you tell him,what are you,FALSE
+106,train,are you free today,he you is beautiful,FALSE
+107,train,shall we go outside,he you please talk slower,FALSE
+108,train,had your food,do not make me,FALSE
+109,train,congratulations,you are you,FALSE
+110,train,do me a favour,he you hiding something,FALSE
+111,train,i am tired,i am feeling bored,FALSE
+112,train,why are you angry,what you want,FALSE
+113,train,i am not really sure,i am not mean it,FALSE
+114,train,i do not mean it,i was nice chatting with you,FALSE
+115,train,it was nice chatting with you,i you free today,FALSE
+116,train,we are all with you,he you please talk slower,FALSE
+117,train,i promise,i can i help you,FALSE
+118,train,he would be coming today,he you please talk slower,FALSE
+119,train,can i help you,i can i help you,FALSE
+120,train,he came by train,he is on train light,FALSE
+121,train,thank you so much,he you is beautiful,FALSE
+122,train,had your food,what do you,FALSE
+123,train,what did you tell him,what do you want to become,FALSE
+124,train,i am feeling cold,i do not make it,FALSE
+125,train,i somehow got to know about it,do not make me angry,FALSE
+126,train,what is your phone number,what do you think,FALSE
+127,train,i am (age),i am so,FALSE
+128,train,congratulations,you are you,FALSE
+129,train,i do not agree,i do not like it,FALSE
+130,train,he is going into the room,he some more water into the glass,FALSE
+131,train,i am suffering from fever,i am not,FALSE
+132,train,i am crying,i am hungry,FALSE
+133,train,i am feeling cold,i am not,FALSE
+134,train,why are you crying,what are you,FALSE
+135,train,i am fine. thank you sir,i am feeling bored,FALSE
+136,train,where are you from,you are you,FALSE
+137,train,do not worry,what do you want,FALSE
+138,train,thank you so much,he is going into the,FALSE
+139,train,why are you disappointed,what are you,FALSE
+140,train,what are you doing,what are you,FALSE
+141,train,you are good,you are you,FALSE
+142,train,pour some more water into the glass,he some more water into the glass,FALSE
+143,train,you are bad,you are you,FALSE
+144,train,do you need something,he you want something,FALSE
+145,train,it was nice chatting with you,i am feeling bored,FALSE
+146,train,my name is xxxxxxxx,he you hiding something,FALSE
+147,train,go and sleep,what are you,FALSE
+148,train,i am so sorry to hear that,i am so sorry to hear that,TRUE
+149,train,how can i help you,i am,FALSE
+150,train,now onwards he will never hurt you,he some more water into the glass,FALSE
+151,train,he is going into the room,he some more water into the glass,FALSE
+152,train,what have you planned for your career,he some more water into the glass,FALSE
+153,train,what do you do,what are you,FALSE
+154,train,do not take it to the heart,do not make me,FALSE
+155,train,do not worry,do not make me,FALSE
+156,train,i am tired,i am feeling bored,FALSE
+157,train,serve the food,he you hiding something,FALSE
+158,train,i need water,i am crying,FALSE
+159,train,this place is beautiful,he you is beautiful,FALSE
+160,train,turn on light turn off light,he some more water into the glass,FALSE
+161,train,why are you disappointed,what are you,FALSE
+162,train,do not abuse him,he is on train,FALSE
+163,train,i need water,do not take it,FALSE
+164,train,help me,i am fine.,FALSE
+165,train,which collegeschool are you from,what are you disappointed,FALSE
+166,train,it does not make any difference to me,do not make me angry,FALSE
+167,train,i really appreciate it,what do you think,FALSE
+168,train,i do not like it,i do not make it,FALSE
+169,train,how old are you,are you hiding,FALSE
+170,train,thank you so much,he you is beautiful,FALSE
+171,train,take care of yourself,do not make me,FALSE
+172,train,i am fine. thank you sir,i am fine.,FALSE
+173,train,how are things,what are you,FALSE
+174,train,try to understand,do not be stubborn,FALSE
+175,train,i am hungry,i am hungry,TRUE
+176,train,how are things,what are you,FALSE
+177,train,you can do it,what are you,FALSE
+178,train,bring water for me,i am not,FALSE
+179,train,can you repeat that please,he you please talk slower,FALSE
+180,train,i do not like it,i am not,FALSE
+181,train,i am so sorry to hear that,i am so sorry to hear that,TRUE
+182,train,he she is my friend,he you please talk slower,FALSE
+183,train,i am afraid of that,i am crying,FALSE
+184,train,i am (age),i am crying,FALSE
+185,train,tell me truth,what do you want,FALSE
+186,train,he is going into the room,he some more water into the glass,FALSE
+187,train,i do not like it,what do you want,FALSE
+188,train,take care of yourself,i am so sorry to hear,FALSE
+189,train,he came by train,he you please talk slower,FALSE
+190,train,why are you disappointed,what you want,FALSE
+191,train,how can i help you,i am,FALSE
+192,train,do not worry,i am so sorry to hear,FALSE
+193,train,how can i help you,i can i help you,FALSE
+194,train,you are welcome,you are you,FALSE
+195,train,go and sleep,he you hiding something,FALSE
+196,train,i am suffering from fever,i am not,FALSE
+197,train,what did you tell him,what do you want,FALSE
+198,train,it was nice chatting with you,i am sitting in the,FALSE
+199,train,i really appreciate it,what do you think,FALSE
+200,train,bring water for me,do not take it,FALSE
+201,train,are you hiding something,he you hiding something,FALSE
+202,train,now onwards he will never hurt you,he some more water into the glass,FALSE
+203,train,speak softly,what are you angry,FALSE
+204,train,i somehow got to know about it,do not make me,FALSE
+205,train,what do you do,what are you,FALSE
+206,train,he would be coming today,he you please talk slower,FALSE
+207,train,how are things,what are you,FALSE
+208,train,it was nice chatting with you,i am sitting in,FALSE
+209,train,why are you crying,what are you disappointed,FALSE
+210,train,take care of yourself,do not take it,FALSE
+211,train,i am feeling bored,i am feeling bored,TRUE
+212,train,it does not make any difference to me,do not take it,FALSE
+213,train,now onwards he will never hurt you,he some more water into the glass,FALSE
+214,train,prepare the bed,he you please talk,FALSE
+215,train,how dare you,i am,FALSE
+216,train,let him take time,he is going into the,FALSE
+217,train,now onwards he will never hurt you,he some more water into the glass,FALSE
+218,train,my name is xxxxxxxx,he you is beautiful,FALSE
+219,train,he is on the way,he is on train,FALSE
+220,train,what do you think,what do you want,FALSE
+221,train,had your food,what do you want,FALSE
+222,train,prepare the bed,he you hiding something,FALSE
+223,train,what happened,you are you,FALSE
+224,train,what you want,you are you,FALSE
+225,train,are you free today,he you hiding something,FALSE
+226,train,can i help you,i can i help you,FALSE
+227,train,you can do it,what are you,FALSE
+228,train,do not hurt me,i am so sorry to hear,FALSE
+229,train,hi how are you,what are you,FALSE
+230,train,i am fine. thank you sir,i am not bored,FALSE
+231,train,why are you crying,what do you think,FALSE
+232,train,nice to meet you,i am not,FALSE
+233,train,you are welcome,you you hiding something,FALSE
+234,train,i am hungry,i am not,FALSE
+235,train,i got hurt,i am so sorry,FALSE
+236,train,we are all with you,he you hiding something,FALSE
+237,train,which collegeschool are you from,he you please,FALSE
+238,train,he came by train,he some more water into the glass,FALSE
+239,train,i dont agree,i you want something,FALSE
+240,train,i do not mean it,i am not mean it,FALSE
+241,train,what are you doing,what are you,FALSE
+242,train,this place is beautiful,he you please talk slower,FALSE
+243,train,i am really grateful,i am fine.,FALSE
+244,train,can you repeat that please,he you hiding something,FALSE
+245,train,do not abuse him,do not make me,FALSE
+246,train,shall we go outside,he you please talk slower,FALSE
+247,train,i do not like it,what do you think,FALSE
+248,train,tell me truth,you are you,FALSE
+249,train,what you want,you are you,FALSE
+250,train,where are you from,what you you,FALSE
+251,train,what are you doing,what are you,FALSE
+252,train,i am sitting in the class,i was a lot,FALSE
+253,train,you are welcome,you are you,FALSE
+254,train,i am not really sure,i am not,FALSE
+255,train,i am in dilemma what to do,i am not really it,FALSE
+256,train,why are you crying,what are you angry,FALSE
+257,train,i am hungry,i am hungry,TRUE
+258,train,i am fine. thank you sir,i am fine. thank you,FALSE
+259,train,what happened,what are you,FALSE
+260,train,i like you i love you,i am feeling bored,FALSE
+261,train,are you hiding something,he you please talk slower,FALSE
+262,train,"you do anything, i do not care",what do you want to become,FALSE
+263,train,comb your hair,he is on the way,FALSE
+264,train,i am not really sure,i am not mean it,FALSE
+265,train,what you want,what are you,FALSE
+266,train,comb your hair,he you please talk,FALSE
+267,train,i am feeling bored,i am sitting in,FALSE
+268,train,pour some more water into the glass,he some more water into the glass,FALSE
+269,train,hi how are you,you are you,FALSE
+270,train,pour some more water into the glass,he some more water into the glass,FALSE
+271,train,are you hiding something,he you hiding something,FALSE
+272,train,i am very happy,i am feeling bored,FALSE
+273,train,that is so kind of you,do not take it,FALSE
+274,train,how can i help you,i can i help you,FALSE
+275,train,do not worry,i am so,FALSE
+276,train,i was stopped by some one,i do not make it,FALSE
+277,train,do not worry,i do not make it,FALSE
+278,train,he would be coming today,he you please talk slower,FALSE
+279,train,you are good,what are you,FALSE
+280,train,i somehow got to know about it,what do you want,FALSE
+281,train,are you hiding something,he you please talk,FALSE
+282,train,do you need something,he you so much,FALSE
+283,train,he is on the way,he is on light the way,FALSE
+284,train,i promise,i am feeling bored,FALSE
+285,train,nice to meet you,what are you,FALSE
+286,train,"you need a medicine, take this one",he some more water into the glass,FALSE
+287,train,do not abuse him,he is on train,FALSE
+288,train,wear the shirt,he you free today,FALSE
+289,train,had your food,what are you,FALSE
+290,train,i promise,i am not,FALSE
+291,train,bring water for me,do not make me,FALSE
+292,train,you are welcome,you are you,FALSE
+293,train,"you need a medicine, take this one",he some more water into the glass,FALSE
+294,train,that is so kind of you,i am fine.,FALSE
+295,train,i am feeling bored,i am not bored,FALSE
+296,train,what happened,what are you,FALSE
+297,train,i am feeling cold,i am so,FALSE
+298,train,he came by train,he is on train,FALSE
+299,train,i got hurt,i am so sorry to hear,FALSE
+300,train,you are good,what are you,FALSE
+301,train,do not take it to the heart,do not take it,FALSE
+302,train,are you free today,what are you,FALSE
+303,train,take care of yourself,do not take it,FALSE
+304,train,you are good,you are you,FALSE
+305,train,you are bad,you are you,FALSE
+306,train,congratulations,you are you,FALSE
+307,train,i am (age),i am hungry,FALSE
+308,train,i do not mean it,i do not make it,FALSE
+309,train,go and sleep,he you hiding something,FALSE
+310,train,congratulations,you are you,FALSE
+311,train,i do not agree,i am not mean,FALSE
+312,train,try to understand,what do you think,FALSE
+313,train,turn on light turn off light,he on light turn off light,FALSE
+314,train,what happened,what are you,FALSE
+315,train,what did you tell him,what are you,FALSE
+316,train,i am crying,i am not,FALSE
+317,train,i am very happy,i am feeling bored,FALSE
+318,train,hi how are you,what you you,FALSE
+319,train,go and sleep,you are you,FALSE
+320,train,i am feeling cold,i am crying,FALSE
+321,train,i am very happy,i am feeling bored,FALSE
+322,train,i need water,i am so,FALSE
+323,train,how dare you,i do not make,FALSE
+324,train,it does not make any difference to me,do not make me angry,FALSE
+325,train,which collegeschool are you from,what you want,FALSE
+326,train,how can i help you,i am,FALSE
+327,train,he would be coming today,he you please talk slower,FALSE
+328,train,"you need a medicine, take this one",he is going into the glass,FALSE
+329,train,wear the shirt,he you hiding something,FALSE
+330,train,what do you think,what do you want,FALSE
+331,train,turn on light turn off light,he on light turn off light,FALSE
+332,train,why are you disappointed,you are you disappointed,FALSE
+333,train,i can not help you there,i can i help you,FALSE
+334,train,why are you angry,what are you angry,FALSE
+335,train,what do you want to become,what do you want to become,TRUE
+336,train,why are you angry,you are you,FALSE
+337,train,i do not mean it,i am not mean it,FALSE
+338,train,i am (age),i am hungry,FALSE
+339,train,i got hurt,i am so sorry,FALSE
+340,train,i like you i love you,i you free today,FALSE
+341,train,i need water,i am so,FALSE
+342,train,i am very happy,i am fine.,FALSE
+343,train,bring water for me,do not make me,FALSE
+344,train,i am tired,i am feeling bored,FALSE
+345,train,i really appreciate it,i am not,FALSE
+346,train,when will the train leave,he you please talk slower,FALSE
+347,train,who are you,you are you,FALSE
+348,train,go and sleep,you are you,FALSE
+349,train,how old are you,what do you,FALSE
+350,train,he would be coming today,he you please talk slower,FALSE
+351,train,prepare the bed,he you please talk,FALSE
+352,train,where are you from,you are you,FALSE
+353,train,he is on the way,he is on train,FALSE
+354,train,i am so sorry to hear that,i am so sorry to hear,FALSE
+355,train,i am afraid of that,i am so sorry to hear,FALSE
+356,train,i can not help you there,i am not bored,FALSE
+357,train,can you repeat that please,he you please talk slower,FALSE
+358,train,do not make me angry,what do you want to become,FALSE
+359,train,why are you angry,what are you angry,FALSE
+360,train,you can do it,what are you,FALSE
+361,train,thank you so much,he is going into the,FALSE
+362,train,how are things,what are you,FALSE
+363,train,bring water for me,do not make me,FALSE
+364,train,"you do anything, i do not care",he you is beautiful,FALSE
+365,train,let him take time,he you please talk slower,FALSE
+366,train,i am in dilemma what to do,i do not make it,FALSE
+367,train,what do you think,what are you,FALSE
+368,train,i am tired,i am not,FALSE
+369,train,nice to meet you,i am not,FALSE
+370,train,i am sitting in the class,i am sitting in the class,TRUE
+371,train,it does not make any difference to me,do not take it,FALSE
+372,train,i can not help you there,i am feeling,FALSE
+373,train,what do you do,what are you angry,FALSE
+374,train,what are you doing,what are you,FALSE
+375,train,are you free today,he you free today,FALSE
+376,train,i can not help you there,i am not,FALSE
+377,train,i need water,i am so sorry to hear,FALSE
+378,train,you are bad,what do you,FALSE
+379,train,try to understand,what do you think,FALSE
+380,train,who are you,what are you,FALSE
+381,train,i am in dilemma what to do,i am not,FALSE
+382,train,who are you,what are you,FALSE
+383,train,i am (age),i am,FALSE
+384,train,help me,you are you,FALSE
+385,train,hi how are you,what are you,FALSE
+386,train,you are bad,what are you,FALSE
+387,train,i really appreciate it,i do not make it,FALSE
+388,train,can i help you,i am,FALSE
+389,train,"you do anything, i do not care",i am not,FALSE
+390,train,you are bad,you are you,FALSE
+391,train,it does not make any difference to me,i am not make any difference to,FALSE
+392,train,do not hurt me,i am not,FALSE
+393,train,i am in dilemma what to do,i am so sorry to hear,FALSE
+394,train,are you free today,i you free today,FALSE
+395,train,"you need a medicine, take this one",he some more water into the glass,FALSE
+396,train,i am sitting in the class,i am sitting in the,FALSE
+397,train,i am fine. thank you sir,i am feeling bored,FALSE
+398,train,do me a favour,what you want,FALSE
+399,train,he is going into the room,he you is beautiful,FALSE
+400,train,now onwards he will never hurt you,he some more water into the glass,FALSE
+401,train,i am hungry,i am hungry,TRUE
+402,train,do not abuse him,he is on train,FALSE
+403,train,can i help you,i am feeling bored,FALSE
+404,train,why are you angry,what are you angry,FALSE
+405,train,where are you from,he you please talk,FALSE
+406,train,serve the food,he you is beautiful,FALSE
+407,train,i am afraid of that,i am crying,FALSE
+408,train,i am sitting in the class,he is is beautiful,FALSE
+409,train,i do not mean it,i am not,FALSE
+410,train,that is so kind of you,do not take it,FALSE
+411,train,i somehow got to know about it,do not make me angry,FALSE
+412,train,tell me truth,you are you,FALSE
+413,train,take care of yourself,i am so sorry to hear,FALSE
+414,train,i enjoyed a lot,i you a lot,FALSE
+415,train,what happened,what are you,FALSE
+416,train,why are you crying,what do you want,FALSE
+417,train,when will the train leave,he some more water into the glass,FALSE
+418,train,why are you disappointed,what you want,FALSE
+419,train,i am feeling bored,i am not mean,FALSE
+420,train,i do not like it,what do you think,FALSE
+421,train,speak softly,what are you,FALSE
+422,train,you are bad,you are you,FALSE
+423,train,hi how are you,you are you,FALSE
+424,train,do not make me angry,do not make me angry,TRUE
+425,train,congratulations,you are you,FALSE
+426,train,i am feeling bored,i am feeling bored,TRUE
+427,train,do not make me angry,what do you want to become,FALSE
+428,train,what do you think,what are you,FALSE
+429,train,my name is xxxxxxxx,he you please talk slower,FALSE
+430,train,i am not really sure,i am feeling,FALSE
+431,train,pour some more water into the glass,he some more water into the glass,FALSE
+432,train,he is on the way,what do you want to become,FALSE
+433,train,let him take time,he you please talk slower,FALSE
+434,train,what is your phone number,what are you,FALSE
+435,train,are you free today,he you please talk,FALSE
+436,train,what is your phone number,what do you want to become,FALSE
+437,train,i enjoyed a lot,i am not mean it,FALSE
+438,train,how can i trust you,i am not,FALSE
+439,train,who are you,you are you,FALSE
+440,train,i am hungry,i am,FALSE
+441,train,do not be stubborn,do not take it,FALSE
+442,train,do not make me angry,he is on train,FALSE
+443,train,do not take it to the heart,do not take it,FALSE
+444,train,are you hiding something,are you hiding something,TRUE
+445,train,i am suffering from fever,i am not,FALSE
+446,train,how can i trust you,what do you,FALSE
+447,train,i am crying,i am hungry,FALSE
+448,train,i enjoyed a lot,he you so much,FALSE
+449,train,we are all with you,you are you,FALSE
+450,train,which collegeschool are you from,what do you want to become,FALSE
+451,train,what are you doing,you are you,FALSE
+452,train,that is so kind of you,i am so sorry to hear,FALSE
+453,train,i am afraid of that,do not make me,FALSE
+454,train,how dare you,you are you,FALSE
+455,train,i was stopped by some one,do not be stubborn,FALSE
+456,train,i am so sorry to hear that,i am so sorry to hear that,TRUE
+457,train,do me a favour,he you free today,FALSE
+458,train,i am very happy,i am,FALSE
+459,train,it was nice chatting with you,i am feeling bored,FALSE
+460,train,let him take time,he is going into the glass,FALSE
+461,train,he she is my friend,he you please talk slower,FALSE
+462,train,i am in dilemma what to do,i am not mean it,FALSE
+463,train,serve the food,he you please talk slower,FALSE
+464,train,that is so kind of you,do not take it,FALSE
+465,train,do not be stubborn,do not take stubborn,FALSE
+466,train,what you want,what are you,FALSE
+467,train,do not take it to the heart,do not take it,FALSE
+468,train,do not worry,do not make me angry,FALSE
+469,train,he she is my friend,he you please talk slower,FALSE
+470,train,let him take time,he you is beautiful,FALSE
+471,train,i am very happy,i am feeling bored,FALSE
+472,train,wear the shirt,are you hiding something,FALSE
+473,train,we are all with you,he you hiding something,FALSE
+474,train,i am so sorry to hear that,i am so sorry to hear,FALSE
+475,train,i am afraid of that,i am crying,FALSE
+476,train,he is on the way,he is on train,FALSE
+477,train,it does not make any difference to me,i am so sorry to hear,FALSE
+478,train,i can not help you there,i am feeling bored,FALSE
+479,train,can i help you,i am not,FALSE
+480,train,what do you do,what are you,FALSE
+481,train,what do you do,what are you,FALSE
+482,train,are you free today,he you please talk,FALSE
+483,train,i enjoyed a lot,i am feeling bored,FALSE
+484,train,i am crying,i am crying,TRUE
+485,train,i am crying,i am so,FALSE
+486,train,congratulations,i am,FALSE
+487,train,i do not agree,i am not,FALSE
+488,train,can i help you,i am feeling bored,FALSE
+489,train,where are you from,you are you from,FALSE
+490,train,i somehow got to know about it,do not make me angry,FALSE
+491,train,i can not help you there,i am not mean it,FALSE
+492,train,how are things,what do you want,FALSE
+493,train,could you please talk slower,he you please talk slower,FALSE
+494,train,you are bad,you are you,FALSE
+495,train,that is so kind of you,i am so sorry to hear,FALSE
+496,train,nice to meet you,what are you,FALSE
+497,train,prepare the bed,you you hiding something,FALSE
+498,train,do me a favour,i am feeling bored,FALSE
+499,train,could you please talk slower,he you please talk slower,FALSE
+500,train,shall we go outside,he you please talk slower,FALSE
+501,train,how old are you,what are you,FALSE
+502,train,go and sleep,you are you,FALSE
+503,train,who are you,you are you,FALSE
+504,train,thank you so much,he you please talk slower,FALSE
+505,train,do not take it to the heart,do not take it,FALSE
+506,train,how dare you,what are you,FALSE
+507,train,i really appreciate it,i do not make it,FALSE
+508,train,"you need a medicine, take this one",he you please talk slower,FALSE
+509,train,"you do anything, i do not care",i am so sorry to hear,FALSE
+510,train,i am not really sure,i am not,FALSE
+511,train,he came by train,he is on train,FALSE
+512,train,help me,i am,FALSE
+513,train,tell me truth,you are you,FALSE
+514,train,this place is beautiful,he you please talk slower,FALSE
+515,train,i can not help you there,i can i help you,FALSE
+516,train,prepare the bed,you are you,FALSE
+517,train,i am hungry,i am so sorry,FALSE
+518,train,i promise,i am,FALSE
+519,train,wear the shirt,he you please talk slower,FALSE
+520,train,i am tired,i am feeling bored,FALSE
+521,train,i am so sorry to hear that,i am so sorry to hear that,TRUE
+522,train,i am crying,i am so,FALSE
+523,train,take care of yourself,i am so sorry to hear,FALSE
+524,train,i somehow got to know about it,what are you,FALSE
+525,train,he came by train,he is on train,FALSE
+526,train,do not make me angry,what do you want to become,FALSE
+527,train,you can do it,what are you,FALSE
+528,train,you can do it,what do you think,FALSE
+529,train,do you need something,he you hiding something,FALSE
+530,train,i do not like it,i am feeling bored,FALSE
+531,train,i am feeling bored,i am feeling bored,TRUE
+532,train,which collegeschool are you from,he you hiding something,FALSE
+533,train,can i help you,i am,FALSE
+534,train,what are you doing,what are you,FALSE
+535,train,can i help you,i am,FALSE
+536,train,how can i help you,i can i help you,FALSE
+537,train,i was stopped by some one,he is so much,FALSE
+538,train,had your food,what do you think,FALSE
+539,train,nice to meet you,what are you,FALSE
+540,train,could you please talk slower,he you please talk slower,FALSE
+541,train,let him take time,he is on train the,FALSE
+542,train,when will the train leave,he you please talk slower,FALSE
+543,train,do not hurt me,i am so sorry,FALSE
+544,train,what do you think,i am not,FALSE
+545,train,do not take it to the heart,do not take it,FALSE
+546,train,had your food,what do you think,FALSE
+547,train,i really appreciate it,what do you think,FALSE
+548,train,try to understand,i am so sorry to hear,FALSE
+549,train,i do not agree,do not make me,FALSE
+550,val,speak softly,what do you want,FALSE
+551,val,do not worry,what do you angry,FALSE
+552,val,how dare you,i you free,FALSE
+553,val,wear the shirt,let you free today,FALSE
+554,val,when will the train leave,i you free today,FALSE
+555,val,serve the food,what are you,FALSE
+556,val,do not hurt me,i am so sorry to hear,FALSE
+557,val,i am hungry,i am not,FALSE
+558,val,i am suffering from fever,i am not of it,FALSE
+559,val,what is your phone number,i am crying,FALSE
+560,val,he she is my friend,he you please talk,FALSE
+561,val,serve the food,he you please talk slower,FALSE
+562,val,which collegeschool are you from,he is on train,FALSE
+563,val,what have you planned for your career,what are you,FALSE
+564,val,i am not really sure,i am so sorry to hear,FALSE
+565,val,i am (age),what do you think,FALSE
+566,val,i promise,i you free today,FALSE
+567,val,i enjoyed a lot,i was a lot,FALSE
+568,val,can you repeat that please,he is on train,FALSE
+569,val,can you repeat that please,i am not,FALSE
+570,val,i am feeling cold,i am,FALSE
+571,val,he she is my friend,you are you,FALSE
+572,val,he she is my friend,he you please talk slower,FALSE
+573,val,he would be coming today,he you please talk slower,FALSE
+574,val,he is going into the room,he you please talk,FALSE
+575,val,my name is xxxxxxxx,he you is beautiful,FALSE
+576,val,comb your hair,he is on the way,FALSE
+577,val,could you please talk slower,he you please talk slower,FALSE
+578,val,speak softly,he is on train,FALSE
+579,val,turn on light turn off light,he is on light,FALSE
+580,val,how old are you,what are you,FALSE
+581,val,i am suffering from fever,i am not,FALSE
+582,val,what did you tell him,what you want,FALSE
+583,val,that is so kind of you,i am so sorry to hear that,FALSE
+584,val,i like you i love you,he is so much,FALSE
+585,val,thank you so much,are you hiding something,FALSE
+586,val,i am in dilemma what to do,he you please talk slower,FALSE
+587,val,this place is beautiful,he you free today,FALSE
+588,val,what is your phone number,you you hiding something,FALSE
+589,val,i like you i love you,he you free today,FALSE
+590,val,turn on light turn off light,he is on train,FALSE
+591,val,are you hiding something,i was a lot,FALSE
+592,val,what did you tell him,what do you want,FALSE
+593,val,how dare you,he you hiding something,FALSE
+594,val,you are welcome,you are you,FALSE
+595,val,i am tired,i am not mean,FALSE
+596,val,wear the shirt,he you please talk slower,FALSE
+597,val,you are welcome,he you hiding something,FALSE
+598,val,i am feeling cold,i am hungry,FALSE
+599,val,i like you i love you,let you free today,FALSE
+600,val,i am afraid of that,i am not,FALSE
+601,val,i am tired,you are you,FALSE
+602,val,shall we go outside,he is going into the glass,FALSE
+603,val,tell me truth,he you so much,FALSE
+604,val,what are you doing,i do not,FALSE
+605,val,let him take time,he is on the train,FALSE
+606,val,how can i trust you,what are you,FALSE
+607,val,help me,i am feeling,FALSE
+608,val,i like you i love you,he you please talk slower,FALSE
+609,val,can you repeat that please,i do not mean it,FALSE
+610,val,i enjoyed a lot,he you hiding something,FALSE
+611,val,he came by train,he you please talk,FALSE
+612,val,what is your phone number,what are you disappointed,FALSE
+613,val,i am really grateful,i am so sorry,FALSE
+614,val,what do you want to become,he is on train,FALSE
+615,val,do you need something,he you hiding something,FALSE
+616,val,i like you i love you,are you hiding something,FALSE
+617,val,what you want,what you want,TRUE
+618,val,go and sleep,he some more water into the glass,FALSE
+619,test,i am sitting in the class,i am sitting in,FALSE
+620,test,do not hurt me,do not take it,FALSE
+621,test,i am sitting in the class,he you hiding something,FALSE
+622,test,prepare the bed,he you please talk,FALSE
+623,test,what is your phone number,what do you,FALSE
+624,test,why are you angry,what do you want to become,FALSE
+625,test,i do not agree,he you want train,FALSE
+626,test,i am in dilemma what to do,i am not,FALSE
+627,test,do not abuse him,he is on train,FALSE
+628,test,what do you do,what are you,FALSE
+629,test,tell me truth,what you want,FALSE
+630,test,my name is xxxxxxxx,i you free today,FALSE
+631,test,do you need something,he you hiding something,FALSE
+632,test,why are you crying,what you want,FALSE
+633,test,i somehow got to know about it,what are you,FALSE
+634,test,i was stopped by some one,do not make me,FALSE
+635,test,i am suffering from fever,i do not make it,FALSE
+636,test,"you do anything, i do not care",what do you want,FALSE
+637,test,help me,how are you,FALSE
+638,test,do not abuse him,he is on train,FALSE
+639,test,what do you think,what are you,FALSE
+640,test,you can do it,what do you think,FALSE
+641,test,i am really grateful,i am not,FALSE
+642,test,are you hiding something,are you hiding something,TRUE
+643,test,my name is xxxxxxxx,i was stopped by,FALSE
+644,test,i like you i love you,i am not,FALSE
+645,test,serve the food,he you please talk,FALSE
+646,test,i do not mean it,i do not like it,FALSE
+647,test,i was stopped by some one,what do you think,FALSE
+648,test,we are all with you,i am feeling bored,FALSE
+649,test,can you repeat that please,what are you,FALSE
+650,test,comb your hair,he is so much the,FALSE
+651,test,shall we go outside,i am not mean it,FALSE
+652,test,i need water,what do you think,FALSE
+653,test,you are welcome,you are you,FALSE
+654,test,he would be coming today,i was stopped chatting with you,FALSE
+655,test,had your food,what do you think,FALSE
+656,test,i need water,i am not,FALSE
+657,test,shall we go outside,he you free today,FALSE
+658,test,do not hurt me,i am so sorry to hear that,FALSE
+659,test,when will the train leave,he is on train,FALSE
+660,test,bring water for me,what do you think,FALSE
+661,test,how old are you,do not take it,FALSE
+662,test,prepare the bed,he you please talk,FALSE
+663,test,how can i trust you,what are you,FALSE
+664,test,pour some more water into the glass,what do you think,FALSE
+665,test,shall we go outside,do not take it,FALSE
+666,test,i am so sorry to hear that,what are you,FALSE
+667,test,do not take it to the heart,do not take it,FALSE
+668,test,you are good,what are you,FALSE
+669,test,serve the food,he you is beautiful,FALSE
+670,test,speak softly,i do not like it,FALSE
+671,test,do not be stubborn,i am so sorry,FALSE
+672,test,how can i trust you,he you hiding something,FALSE
+673,test,comb your hair,he is on the way,FALSE
+674,test,do me a favour,he you free today,FALSE
+675,test,do me a favour,i am feeling bored,FALSE
+676,test,take care of yourself,do not make me,FALSE
+677,test,how old are you,i am so,FALSE
+678,test,comb your hair,what do you think,FALSE
+679,test,i really appreciate it,what do you think,FALSE
+680,test,i do not agree,what are you angry,FALSE
+681,test,turn on light turn off light,he on light turn off light,FALSE
+682,test,how can i trust you,i am so sorry,FALSE
+683,test,this place is beautiful,he is on the way,FALSE
+684,test,"you need a medicine, take this one",do not be stubborn,FALSE
+685,test,you are good,what are you,FALSE
+686,test,he is going into the room,he is so much,FALSE
+687,test,he she is my friend,he you please talk,FALSE
